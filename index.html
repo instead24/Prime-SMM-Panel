@@ -2018,36 +2018,71 @@
 <script type="text/javascript">
 $(document).ready(function() {
     
-    // --- PAGE TOGGLE LOGIC ---
+    // --- PAGE TOGGLE LOGIC WITH HISTORY API FIX ---
     const $publicView = $('#public-view');
     const $internalView = $('#internal-view');
     const $signInButton = $('#signInButton');
     const $logoutButton = $('#logoutButton'); 
 
-    // 1. Initial State: Hide Internal View
-    $internalView.addClass('hidden-content');
-    $publicView.removeClass('hidden-content');
+    // 1. Initial State: Check History State on Load
+    // If the URL has #dashboard or history state says internal, show internal view.
+    if (window.location.hash === '#dashboard') {
+        $internalView.removeClass('hidden-content');
+        $publicView.addClass('hidden-content');
+    } else {
+        $internalView.addClass('hidden-content');
+        $publicView.removeClass('hidden-content');
+        // Set initial state
+        window.history.replaceState({ view: 'public' }, null, '');
+    }
 
     // 2. Sign In Handler (from form button)
     $signInButton.on('click', function(e) {
         e.preventDefault(); 
-        // Simple authentication bypass for demonstration
+        
+        // PUSH STATE: This adds a new entry to the browser history
+        window.history.pushState({ view: 'internal' }, null, '#dashboard');
+
+        // Toggle Views
         $publicView.addClass('hidden-content');
         $internalView.removeClass('hidden-content');
-        // Scroll to top of the internal view after switching
-        $('html, body').scrollTop($internalView.offset().top); 
+        
+        // Scroll to top of the internal view
+        $('html, body').scrollTop(0); 
     });
 
-    // 3. Logout Handler (from internal view navbar link)
+    // 3. LISTEN FOR BACK BUTTON (popstate event)
+    $(window).on('popstate', function(event) {
+        const state = event.originalEvent.state;
+        
+        // If state is null or view is 'public', go to Home View
+        if (!state || state.view === 'public') {
+            $internalView.addClass('hidden-content');
+            $publicView.removeClass('hidden-content');
+        } 
+        // If state is 'internal', go to Dashboard View
+        else if (state.view === 'internal') {
+            $publicView.addClass('hidden-content');
+            $internalView.removeClass('hidden-content');
+        }
+    });
+
+    // 4. Logout Handler (from internal view navbar link)
     $logoutButton.on('click', function(e) {
         e.preventDefault();
-        $internalView.addClass('hidden-content');
-        $publicView.removeClass('hidden-content');
-        // Scroll to top of the public view after logging out
-        $('html, body').scrollTop($publicView.offset().top); 
+        
+        // Go back in history (simulates back button press) to clean up #dashboard from URL
+        window.history.back();
+        
+        // Fallback UI update in case history.back doesn't trigger immediately
+        setTimeout(function(){
+            $internalView.addClass('hidden-content');
+            $publicView.removeClass('hidden-content');
+            $('html, body').scrollTop(0);
+        }, 50);
     });
 
-    // 4. Internal Menu Links - prevent page refresh for this single page demo
+    // 5. Internal Menu Links - prevent page refresh for this single page demo
     $('#menu-new-order, #sidebar-new-order').on('click', function(e) {
         e.preventDefault();
     });
