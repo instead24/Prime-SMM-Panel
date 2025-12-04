@@ -1871,40 +1871,6 @@
 <!-- ************************************************ -->
 
 <!-- ************************************************ -->
-<!-- START: NEW DROPDOWN SECTION (VIEWS) -->
-<!-- ************************************************ -->
-<div class="form-group custom-dropdown-wrapper views-dropdown">
-  <label for="orderform-views-category" class="control-label">Views Section</label> 
-  
-  <select
-          class="form-control d-none"
-          id="orderform-views-category"
-          name="OrderForm[views_category]"
-          data-select="true"
-          data-select-search="true"
-          data-select-search-placeholder="Search Views"
-          data-select-container="#select-views-container"
-                                            >
-    <!-- Dynamic content placeholder -->
-    <option value="" selected disabled>Select Views Plan</option>
-  </select>
-  <!-- Custom Dropdown Trigger and Options Container -->
-  <div class="custom-select-trigger" id="orderform-views-category-custom">
-    <span class="selected-value">Select Views Plan</span> 
-    <i class="fas fa-chevron-down dropdown-arrow"></i>
-  </div>
-  
-  <div class="custom-options-container" id="views-options-container">
-    <!-- Options will be dynamically populated by JavaScript -->
-  </div>
-
-  <div id="select-views-container" class="position-relative"></div>
-</div>
-<!-- ************************************************ -->
-<!-- END: NEW DROPDOWN SECTION (VIEWS) -->
-<!-- ************************************************ -->
-
-<!-- ************************************************ -->
 <!-- START: NEW DROPDOWN SECTION (YOUTUBE SUBSCRIBERS) -->
 <!-- ************************************************ -->
 <div class="form-group custom-dropdown-wrapper subscribers-dropdown" style="display: none;">
@@ -1932,6 +1898,41 @@
 </div>
 <!-- ************************************************ -->
 <!-- END: NEW DROPDOWN SECTION (YOUTUBE SUBSCRIBERS) -->
+<!-- ************************************************ -->
+
+
+<!-- ************************************************ -->
+<!-- START: NEW DROPDOWN SECTION (VIEWS) - MOVED HERE -->
+<!-- ************************************************ -->
+<div class="form-group custom-dropdown-wrapper views-dropdown">
+  <label for="orderform-views-category" class="control-label">Views</label> 
+  
+  <select
+          class="form-control d-none"
+          id="orderform-views-category"
+          name="OrderForm[views_category]"
+          data-select="true"
+          data-select-search="true"
+          data-select-search-placeholder="Search Views"
+          data-select-container="#select-views-container"
+                                            >
+    <!-- Dynamic content placeholder -->
+    <option value="" selected disabled>Select Views Plan</option>
+  </select>
+  <!-- Custom Dropdown Trigger and Options Container -->
+  <div class="custom-select-trigger" id="orderform-views-category-custom">
+    <span class="selected-value">Select Views Plan</span> 
+    <i class="fas fa-chevron-down dropdown-arrow"></i>
+  </div>
+  
+  <div class="custom-options-container" id="views-options-container">
+    <!-- Options will be dynamically populated by JavaScript -->
+  </div>
+
+  <div id="select-views-container" class="position-relative"></div>
+</div>
+<!-- ************************************************ -->
+<!-- END: NEW DROPDOWN SECTION (VIEWS) -->
 <!-- ************************************************ -->
 
 <!-- ************************************************ -->
@@ -2325,6 +2326,7 @@ $(document).ready(function() {
         { value: 'tw-likes-11k', text: '11K likes = ₹530' },
         { value: 'tw-likes-12k', text: '12K likes = ₹560' }
     ],
+    // YouTube Likes REMOVED/IGNORED in JS logic, but data kept for safety
     'youtube': [
         { value: 'yt-likes-1', text: 'YouTube 50 RS. 100K likes' },
         { value: 'yt-likes-2', text: 'YouTube 1000 RS. 140K likes' }
@@ -2488,7 +2490,6 @@ $(document).ready(function() {
         $container.empty();
 
         let firstOptionText = defaultPlaceholderText;
-        let isFirstOptionSet = false;
         
         // Add default placeholder if needed (important for validation/empty state)
         if (!options || options.length === 0) {
@@ -2513,7 +2514,6 @@ $(document).ready(function() {
             if (index === 0) {
                 $newOption.prop('selected', true);
                 firstOptionText = option.text;
-                isFirstOptionSet = true;
             }
             $select.append($newOption);
             
@@ -2543,28 +2543,40 @@ $(document).ready(function() {
         $(`#platform-options-container .custom-option[data-value="${platform}"]`).addClass('selected');
 
 
-        // 2. Update Common Dropdowns
+        // 2. Update Common Dropdowns (Likes and Views)
+        // Note: For YouTube, Likes will be hidden by logic below, but we still populate it just in case.
         updateCustomDropdown(platform, 'orderform-likes-category', 'likes-options-container', likesOptionsData, 'Select Likes Plan');
         updateCustomDropdown(platform, 'orderform-views-category', 'views-options-container', viewsOptionsData, 'Select Views Plan');
 
         // 3. PLATFORM SPECIFIC LOGIC
         if (platform === 'youtube') {
-            // YOUTUBE: Hide Followers, Show Subscribers & Watch Time
-            $('.followers-dropdown').slideUp(200); // HIDE FOLLOWERS
+            // YOUTUBE: 
+            // 1. Hide Followers
+            $('.followers-dropdown').slideUp(200); 
+            // 2. Hide Likes (AS PER REQUEST)
+            $('.likes-dropdown').slideUp(200); 
             
-            $('.subscribers-dropdown').slideDown(200); // SHOW SUBSCRIBERS
-            $('.watchtime-dropdown').slideDown(200);   // SHOW WATCH TIME
+            // 3. Show Subscribers, Views, Watch Time (in that HTML order)
+            $('.subscribers-dropdown').slideDown(200); 
+            $('.views-dropdown').slideDown(200);
+            $('.watchtime-dropdown').slideDown(200);   
             
             // Populate specific YouTube data
             updateCustomDropdown(platform, 'orderform-subscribers-category', 'subscribers-options-container', ytSubscribersData, 'Select Subscribers Plan');
             updateCustomDropdown(platform, 'orderform-watchtime-category', 'watchtime-options-container', ytWatchTimeData, 'Select Watch Time Plan');
         } else {
-            // OTHER PLATFORMS: Show Followers, Hide YouTube specials
-            $('.followers-dropdown').slideDown(200); // SHOW FOLLOWERS
+            // OTHER PLATFORMS: 
+            // Show Followers, Show Likes, Show Views
+            $('.followers-dropdown').slideDown(200); 
+            $('.likes-dropdown').slideDown(200); 
+            $('.views-dropdown').slideDown(200); 
+
+            // Update followers data
             updateCustomDropdown(platform, 'orderform-followers-category', 'followers-options-container', followersOptionsData, 'Select Followers Plan');
             
-            $('.subscribers-dropdown').slideUp(200); // HIDE SUBSCRIBERS
-            $('.watchtime-dropdown').slideUp(200);   // HIDE WATCH TIME
+            // Hide YouTube specifics
+            $('.subscribers-dropdown').slideUp(200); 
+            $('.watchtime-dropdown').slideUp(200);   
         }
     }
 
@@ -2638,19 +2650,27 @@ $(document).ready(function() {
         // Check if the platform dropdown was changed to update Followers, Likes, and Views dropdowns
         if (selectId === 'orderform-platform') {
             const selectedPlatform = selectedValue;
+            
+            // Common Updates
             updateCustomDropdown(selectedPlatform, 'orderform-likes-category', 'likes-options-container', likesOptionsData, 'Select Likes Plan');
             updateCustomDropdown(selectedPlatform, 'orderform-views-category', 'views-options-container', viewsOptionsData, 'Select Views Plan'); 
             
-            // Toggle Logic
+            // Toggle Logic (Same as updateAllServiceDropdowns)
             if (selectedPlatform === 'youtube') {
                 $('.followers-dropdown').slideUp(200);
+                $('.likes-dropdown').slideUp(200); // Hide Likes
+                
                 $('.subscribers-dropdown').slideDown(200);
+                $('.views-dropdown').slideDown(200);
                 $('.watchtime-dropdown').slideDown(200);
                 
                 updateCustomDropdown(selectedPlatform, 'orderform-subscribers-category', 'subscribers-options-container', ytSubscribersData, 'Select Subscribers Plan');
                 updateCustomDropdown(selectedPlatform, 'orderform-watchtime-category', 'watchtime-options-container', ytWatchTimeData, 'Select Watch Time Plan');
             } else {
                 $('.followers-dropdown').slideDown(200);
+                $('.likes-dropdown').slideDown(200); // Show Likes
+                $('.views-dropdown').slideDown(200);
+
                 updateCustomDropdown(selectedPlatform, 'orderform-followers-category', 'followers-options-container', followersOptionsData, 'Select Followers Plan');
                 $('.subscribers-dropdown').slideUp(200);
                 $('.watchtime-dropdown').slideUp(200);
@@ -2678,7 +2698,6 @@ $(document).ready(function() {
     });
     
     // ** Initial Load of Follower, Likes, Views AND Subscribers Options (Step 4) **
-    // Page load hone par default selected platform ('instagram') ke options load karega.
     const initialPlatform = $('#orderform-platform').val();
     updateCustomDropdown(initialPlatform, 'orderform-likes-category', 'likes-options-container', likesOptionsData, 'Select Likes Plan');
     updateCustomDropdown(initialPlatform, 'orderform-views-category', 'views-options-container', viewsOptionsData, 'Select Views Plan');
@@ -2686,12 +2705,19 @@ $(document).ready(function() {
     // Check platform specific logic on load
     if (initialPlatform === 'youtube') {
         $('.followers-dropdown').hide();
+        $('.likes-dropdown').hide(); // Hide Likes
+        
         $('.subscribers-dropdown').show();
+        $('.views-dropdown').show();
         $('.watchtime-dropdown').show();
+        
         updateCustomDropdown(initialPlatform, 'orderform-subscribers-category', 'subscribers-options-container', ytSubscribersData, 'Select Subscribers Plan');
         updateCustomDropdown(initialPlatform, 'orderform-watchtime-category', 'watchtime-options-container', ytWatchTimeData, 'Select Watch Time Plan');
     } else {
         $('.followers-dropdown').show();
+        $('.likes-dropdown').show(); // Show Likes
+        $('.views-dropdown').show();
+        
         updateCustomDropdown(initialPlatform, 'orderform-followers-category', 'followers-options-container', followersOptionsData, 'Select Followers Plan');
         $('.subscribers-dropdown').hide();
         $('.watchtime-dropdown').hide();
