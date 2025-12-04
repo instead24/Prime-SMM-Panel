@@ -2174,65 +2174,81 @@ $(document).ready(function() {
     };
     
     const likesOptionsData = {
-        'facebook': [
-            { value: 'fb-likes-1.5k', text: '1.5K likes non drop = ₹40' },
-            { value: 'fb-likes-2.5k', text: '2.5K likes non drop = ₹80' },
-            { value: 'fb-likes-3.5k', text: '3.5K likes non drop = ₹120' },
-            { value: 'fb-likes-4.5k', text: '4.5K likes non drop = ₹160' },
-            { value: 'fb-likes-5.5k', text: '5.5K likes non drop = ₹210' },
-            { value: 'fb-likes-6.5k', text: '6.5K likes non drop = ₹250' },
-            { value: 'fb-likes-7.5k', text: '7.5K likes non drop = ₹310' },
-            { value: 'fb-likes-8.5k', text: '8.5K likes non drop = ₹350' },
-            { value: 'fb-likes-9.5k', text: '9.5K likes non drop = ₹410' },
-            { value: 'fb-likes-10.5k', text: '10.5K likes non drop = ₹520' },
-            { value: 'fb-likes-11.5k', text: '11.5K likes non drop = ₹570' },
-            { value: 'fb-likes-12.5k', text: '12.5K likes non drop = ₹650' }
-        ],
-        'instagram': [
-            { value: 'insta-likes-10k', text: '10K INSTAGRAM LIKE ₹20 100% REAL INDIAN AUDIENCE COMPLETE TIME 12 MINUTES ( LIFETIME WARRANTY )' },
-            { value: 'insta-likes-20k', text: '20K INSTAGRAM LIKE ₹40 100% REAL INDIAN AUDIENCE COMPLETE TIME 26 MINUTES ( LIFETIME WARRANTY )' },
-            { value: 'insta-likes-30k', text: '30K INSTAGRAM LIKE ₹60 100% REAL INDIAN AUDIENCE COMPLETE TIME 31 MINUTES ( LIFETIME WARRANTY )' },
-            { value: 'insta-likes-40k', text: '40K INSTAGRAM LIKE ₹80 100% REAL INDIAN AUDIENCE COMPLETE TIME 44 MINUTES ( LIFETIME WARRANTY )' },
-            { value: 'insta-likes-50k', text: '50K INSTAGRAM LIKE ₹100 100% REAL INDIAN AUDIENCE COMPLETE TIME 59 MINUTES ( LIFETIME WARRANTY )' },
-            { value: 'insta-likes-60k', text: '60K INSTAGRAM LIKE ₹120 100% REAL INDIAN AUDIENCE COMPLETE TIME 1 HOURS 12 MINUTES ( LIFETIME WARRANTY )' },
-            { value: 'insta-likes-70k', text: '70K INSTAGRAM LIKE ₹140 100% REAL INDIAN AUDIENCE COMPLETE TIME 1 HOURS 28 MINUTES ( LIFETIME WARRANTY )' },
-            { value: 'insta-likes-80k', text: '80K INSTAGRAM LIKE ₹160 100% REAL INDIAN AUDIENCE COMPLETE TIME 1 HOURS 32 MINUTES ( LIFETIME WARRANTY )' },
-            { value: 'insta-likes-90k', text: '90K INSTAGRAM LIKE ₹180 100% REAL INDIAN AUDIENCE COMPLETE TIME 1 HOURS 51 MINUTES ( LIFETIME WARRANTY )' },
-            { value: 'insta-likes-100k-1', text: '100K INSTAGRAM LIKE ₹200 100% REAL INDIAN AUDIENCE COMPLETE TIME 2 HOURS 11 MINUTES ( LIFETIME WARRANTY )' },
-            { value: 'insta-likes-100k-2', text: '100K INSTAGRAM LIKE ₹200 100% REAL INDIAN AUDIENCE COMPLETE TIME 2 HOURS 31 MINUTES ( LIFETIME WARRANTY )' },
-            { value: 'insta-likes-200k', text: '200K INSTAGRAM LIKE ₹400 100% REAL INDIAN AUDIENCE COMPLETE TIME 3 HOURS 31 MINUTES ( LIFETIME WARRANTY )' },
-            { value: 'insta-likes-300k', text: '300K INSTAGRAM LIKE ₹600 100% REAL INDIAN AUDIENCE COMPLETE TIME 2 HOURS 31 MINUTES ( LIFETIME WARRANTY )' }
-        ],
-        'twitter': [
-            { value: 'tw-likes-1.5k', text: '1.5K likes = ₹29' },
-            { value: 'tw-likes-2.5k', text: '2.5K likes = ₹59' },
-            { value: 'tw-likes-3.5k', text: '3.5K likes = ₹130' },
-            { value: 'tw-likes-4.5k', text: '4.5K likes = ₹160' },
-            { value: 'tw-likes-5.5k', text: '5.5K likes = ₹230' },
-            { value: 'tw-likes-6.5k', text: '6.5K likes = ₹260' },
-            { value: 'tw-likes-7.5k', text: '7.5K likes = ₹330' },
-            { value: 'tw-likes-8.5k', text: '8.5K likes = ₹360' },
-            { value: 'tw-likes-9.5k', text: '9.5K likes = ₹430' },
-            { value: 'tw-likes-10k', text: '10K likes = ₹460' },
-            { value: 'tw-likes-11k', text: '11K likes = ₹530' },
-            { value: 'tw-likes-12k', text: '12K likes = ₹560' }
-        ],
-        'youtube': [
-            { value: 'yt-likes-1', text: 'YouTube 50 RS. 100K likes' },
-            { value: 'yt-likes-2', text: 'YouTube 1000 RS. 140K likes' }
-        ],
-        'telegram': [
-            { value: 'tg-likes-1', text: 'Telegram 50 RS. 100K likes' },
-            { value: 'tg-likes-2', text: 'Telegram 1000 RS. 140K likes' } 
-        ],
-        'whatsapp': [
-            { value: 'wa-likes-1', text: 'WhatsApp 50 RS. 100K likes' },
-            { value: 'wa-likes-2', text: 'WhatsApp 1000 RS. 140K likes' }
-        ],
-        'other': [
-            { value: 'other-plan-2', text: 'Other Services - Please Check Service Page (Likes)' }
-        ]
-    };
+    'facebook': [
+        { value: 'fb-likes-1.5k', text: '1.5K likes non drop = ₹40' },
+        { value: 'fb-likes-2.5k', text: '2.5K likes non drop = ₹80' },
+        { value: 'fb-likes-3.5k', text: '3.5K likes non drop = ₹120' },
+        { value: 'fb-likes-4.5k', text: '4.5K likes non drop = ₹160' },
+        { value: 'fb-likes-5.5k', text: '5.5K likes non drop = ₹210' },
+        { value: 'fb-likes-6.5k', text: '6.5K likes non drop = ₹250' },
+        { value: 'fb-likes-7.5k', text: '7.5K likes non drop = ₹310' },
+        { value: 'fb-likes-8.5k', text: '8.5K likes non drop = ₹350' },
+        { value: 'fb-likes-9.5k', text: '9.5K likes non drop = ₹410' },
+        { value: 'fb-likes-10.5k', text: '10.5K likes non drop = ₹520' },
+        { value: 'fb-likes-11.5k', text: '11.5K likes non drop = ₹570' },
+        { value: 'fb-likes-12.5k', text: '12.5K likes non drop = ₹650' }
+    ],
+    'instagram': [
+        { value: 'insta-likes-10k', text: '10K INSTAGRAM LIKE ₹20 100% REAL INDIAN AUDIENCE COMPLETE TIME 12 MINUTES ( LIFETIME WARRANTY )' },
+        { value: 'insta-likes-20k', text: '20K INSTAGRAM LIKE ₹40 100% REAL INDIAN AUDIENCE COMPLETE TIME 26 MINUTES ( LIFETIME WARRANTY )' },
+        { value: 'insta-likes-30k', text: '30K INSTAGRAM LIKE ₹60 100% REAL INDIAN AUDIENCE COMPLETE TIME 31 MINUTES ( LIFETIME WARRANTY )' },
+        { value: 'insta-likes-40k', text: '40K INSTAGRAM LIKE ₹80 100% REAL INDIAN AUDIENCE COMPLETE TIME 44 MINUTES ( LIFETIME WARRANTY )' },
+        { value: 'insta-likes-50k', text: '50K INSTAGRAM LIKE ₹100 100% REAL INDIAN AUDIENCE COMPLETE TIME 59 MINUTES ( LIFETIME WARRANTY )' },
+        { value: 'insta-likes-60k', text: '60K INSTAGRAM LIKE ₹120 100% REAL INDIAN AUDIENCE COMPLETE TIME 1 HOURS 12 MINUTES ( LIFETIME WARRANTY )' },
+        { value: 'insta-likes-70k', text: '70K INSTAGRAM LIKE ₹140 100% REAL INDIAN AUDIENCE COMPLETE TIME 1 HOURS 28 MINUTES ( LIFETIME WARRANTY )' },
+        { value: 'insta-likes-80k', text: '80K INSTAGRAM LIKE ₹160 100% REAL INDIAN AUDIENCE COMPLETE TIME 1 HOURS 32 MINUTES ( LIFETIME WARRANTY )' },
+        { value: 'insta-likes-90k', text: '90K INSTAGRAM LIKE ₹180 100% REAL INDIAN AUDIENCE COMPLETE TIME 1 HOURS 51 MINUTES ( LIFETIME WARRANTY )' },
+        { value: 'insta-likes-100k-1', text: '100K INSTAGRAM LIKE ₹200 100% REAL INDIAN AUDIENCE COMPLETE TIME 2 HOURS 11 MINUTES ( LIFETIME WARRANTY )' },
+        { value: 'insta-likes-100k-2', text: '100K INSTAGRAM LIKE ₹200 100% REAL INDIAN AUDIENCE COMPLETE TIME 2 HOURS 31 MINUTES ( LIFETIME WARRANTY )' },
+        { value: 'insta-likes-200k', text: '200K INSTAGRAM LIKE ₹400 100% REAL INDIAN AUDIENCE COMPLETE TIME 3 HOURS 31 MINUTES ( LIFETIME WARRANTY )' },
+        { value: 'insta-likes-300k', text: '300K INSTAGRAM LIKE ₹600 100% REAL INDIAN AUDIENCE COMPLETE TIME 2 HOURS 31 MINUTES ( LIFETIME WARRANTY )' },
+        { value: 'insta-likes-400k', text: '400K INSTAGRAM LIKE ₹800 100% REAL INDIAN AUDIENCE COMPLETE TIME 2 HOURS 59 MINUTES ( LIFETIME WARRANTY )' },
+        { value: 'insta-likes-500k', text: '500K INSTAGRAM LIKE ₹1000 100% REAL INDIAN AUDIENCE COMPLETE TIME 4 HOURS 21 MINUTES ( LIFETIME WARRANTY )' },
+        { value: 'insta-likes-600k', text: '600K INSTAGRAM LIKE ₹1200 100% REAL INDIAN AUDIENCE COMPLETE TIME 4 HOURS 18 MINUTES ( LIFETIME WARRANTY )' },
+        { value: 'insta-likes-700k', text: '700K INSTAGRAM LIKE ₹1400 100% REAL INDIAN AUDIENCE COMPLETE TIME 5 HOURS 11 MINUTES ( LIFETIME WARRANTY )' },
+        { value: 'insta-likes-800k', text: '800K INSTAGRAM LIKE ₹1600 100% REAL INDIAN AUDIENCE COMPLETE TIME 6 HOURS 44 MINUTES ( LIFETIME WARRANTY )' },
+        { value: 'insta-likes-900k', text: '900K INSTAGRAM LIKE ₹1800 100% REAL INDIAN AUDIENCE COMPLETE TIME 7 HOURS 11 MINUTES ( LIFETIME WARRANTY )' },
+        { value: 'insta-likes-1m', text: '1M INSTAGRAM LIKE ₹2000 100% REAL INDIAN AUDIENCE COMPLETE TIME 8 HOURS 11 MINUTES ( LIFETIME WARRANTY )' },
+        { value: 'insta-likes-2m', text: '2M INSTAGRAM LIKE ₹4000 100% REAL INDIAN AUDIENCE COMPLETE TIME 9 HOURS 8 MINUTES ( LIFETIME WARRANTY )' },
+        { value: 'insta-likes-3m', text: '3M INSTAGRAM LIKE ₹6000 100% REAL INDIAN AUDIENCE COMPLETE TIME 10 HOURS 21 MINUTES ( LIFETIME WARRANTY )' },
+        { value: 'insta-likes-4m', text: '4M INSTAGRAM LIKE ₹8000 100% REAL INDIAN AUDIENCE COMPLETE TIME 11 HOURS 39 MINUTES ( LIFETIME WARRANTY )' },
+        { value: 'insta-likes-5m', text: '5M INSTAGRAM LIKE ₹10000 100% REAL INDIAN AUDIENCE COMPLETE TIME 12 HOURS 19 MINUTES ( LIFETIME WARRANTY )' },
+        { value: 'insta-likes-6m', text: '6M INSTAGRAM LIKE ₹12000 100% REAL INDIAN AUDIENCE COMPLETE TIME 13 HOURS 56 MINUTES ( LIFETIME WARRANTY )' },
+        { value: 'insta-likes-7m', text: '7M INSTAGRAM LIKE ₹14000 100% REAL INDIAN AUDIENCE COMPLETE TIME 14 HOURS 40 MINUTES ( LIFETIME WARRANTY )' },
+        { value: 'insta-likes-8m', text: '8M INSTAGRAM LIKE ₹16000 100% REAL INDIAN AUDIENCE COMPLETE TIME 15 HOURS 11 MINUTES ( LIFETIME WARRANTY )' },
+        { value: 'insta-likes-9m', text: '9M INSTAGRAM LIKE ₹18000 100% REAL INDIAN AUDIENCE COMPLETE TIME 18 HOURS 2 MINUTES ( LIFETIME WARRANTY )' },
+        { value: 'insta-likes-10m', text: '10M INSTAGRAM LIKE ₹20000 100% REAL INDIAN AUDIENCE COMPLETE TIME 19 HOURS 10 MINUTES ( LIFETIME WARRANTY )' }
+    ],
+    'twitter': [
+        { value: 'tw-likes-1.5k', text: '1.5K likes = ₹29' },
+        { value: 'tw-likes-2.5k', text: '2.5K likes = ₹59' },
+        { value: 'tw-likes-3.5k', text: '3.5K likes = ₹130' },
+        { value: 'tw-likes-4.5k', text: '4.5K likes = ₹160' },
+        { value: 'tw-likes-5.5k', text: '5.5K likes = ₹230' },
+        { value: 'tw-likes-6.5k', text: '6.5K likes = ₹260' },
+        { value: 'tw-likes-7.5k', text: '7.5K likes = ₹330' },
+        { value: 'tw-likes-8.5k', text: '8.5K likes = ₹360' },
+        { value: 'tw-likes-9.5k', text: '9.5K likes = ₹430' },
+        { value: 'tw-likes-10k', text: '10K likes = ₹460' },
+        { value: 'tw-likes-11k', text: '11K likes = ₹530' },
+        { value: 'tw-likes-12k', text: '12K likes = ₹560' }
+    ],
+    'youtube': [
+        { value: 'yt-likes-1', text: 'YouTube 50 RS. 100K likes' },
+        { value: 'yt-likes-2', text: 'YouTube 1000 RS. 140K likes' }
+    ],
+    'telegram': [
+        { value: 'tg-likes-1', text: 'Telegram 50 RS. 100K likes' },
+        { value: 'tg-likes-2', text: 'Telegram 1000 RS. 140K likes' }
+    ],
+    'whatsapp': [
+        { value: 'wa-likes-1', text: 'WhatsApp 50 RS. 100K likes' },
+        { value: 'wa-likes-2', text: 'WhatsApp 1000 RS. 140K likes' }
+    ],
+    'other': [
+        { value: 'other-plan-2', text: 'Other Services - Please Check Service Page (Likes)' }
+    ]
+};
 
     const viewsOptionsData = {
         'instagram': [
