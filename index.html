@@ -154,11 +154,6 @@
     border-bottom: none;
 }
 
-.custom-option:hover, .custom-option.selected {
-  background-color: #f8f9fa; /* Light hover background */
-  color: #007bff; /* Blue text on hover/selected */
-}
-
 /* For Category Dropdown with Images/Icons (Kept but functionally ignored by JS) */
 .custom-option img {
   width: 20px;
@@ -366,7 +361,62 @@
 }
 /* --- END: NEW UNIQUE REVIEWS SECTION STYLES --- */
 
-/* --- END: Custom Dropdown CSS --- */
+/* --- START: Modified Glow Effects (Selection Only) --- */
+
+/* 1. Default State (Normal) */
+.custom-select-trigger {
+    border: 1px solid #ced4da;
+    box-shadow: none;
+    transition: all 0.3s ease;
+}
+
+/* 2. Active State (Jab Dropdown KHULA ho) - Sirf Border Blue hoga, Glow nahi */
+.custom-dropdown-wrapper.active .custom-select-trigger {
+    border-color: #007bff;
+    transform: translateY(-1px);
+}
+
+/* 3. FILLED State (Jab Option SELECT ho jaye) - SIRF TAB GLOW KAREGA */
+.custom-dropdown-wrapper.filled .custom-select-trigger {
+    border-color: #007bff;
+    background-color: #fff;
+    /* Strong Outline Glow */
+    box-shadow: 0 0 0 4px rgba(0, 123, 255, 0.2), 0 0 15px rgba(0, 123, 255, 0.3);
+    z-index: 1;
+}
+
+/* 4. Dropdown Options Styling */
+.custom-option {
+    transition: all 0.2s ease;
+    border-left: 3px solid transparent;
+}
+
+.custom-option:hover {
+    background-color: #f8f9fa;
+    color: #007bff;
+    padding-left: 1.25rem; /* Thoda slide effect */
+}
+
+/* 5. Selected Option inside the list */
+.custom-option.selected {
+    background-color: #e7f1ff;
+    color: #0056b3;
+    font-weight: 700;
+    border-left: 4px solid #007bff;
+}
+
+/* 6. Social Media Icons Glow (Jab Click ho) */
+.platforms-item button.active-platform {
+    background-color: #fff;
+    border-color: #007bff;
+    box-shadow: 0 0 15px rgba(0, 123, 255, 0.4);
+    transform: scale(1.05);
+}
+.platforms-item button.active-platform .platforms-item__title {
+    color: #007bff;
+    font-weight: bold;
+}
+/* --- END: Modified Glow Effects --- */
 </style>
 
 
@@ -1984,14 +2034,14 @@
               <div class="service-description-box">
                     <div class="alert"><span class="fas fa-exclamation-triangle"></span> Please Read the Description</div>
                     <ul>
-                        <li>- Link: Instagram Username</li>
+                        <li>- Link: ID/ Username/Channel</li>
                         <li>- Location: Worldwide 🌎</li>
-                        <li>- Quality: 100% Old Accounts with Posts</li>
+                        <li>- Quality: 100% Fast & Secure</li>
                         <li>- Start: 10-20 Minutes</li>
-                        <li>- Speed: Day 100K 🚀</li>
-                        <li>- Drop Rate: Low Drop</li>
+                        <li>- Speed: Day 140K 🚀</li>
+                        <li>- Drop Rate: Non Drop ⭐</li>
                         <li>- Refill Time: No Refill ⚠️</li>
-                        <li>- Cancel Button: Active 🚫</li>
+                        <li></li>
                     </ul>
                     <span class="notes-title">Notes:</span>
                     <ul>
@@ -2401,12 +2451,12 @@ $(document).ready(function() {
              { value: 'insta-view-2m', text: '2M INSTAGRAM VIEWS ₹2000 COMPLETE TIME 2 HOURS 58 MINUTES ( NON DROP SERVICE 💧 )' },
              { value: 'insta-view-3m', text: '3M INSTAGRAM VIEWS ₹3000 COMPLETE TIME 3 HOURS 21 MINUTES ( NON DROP SERVICE 💧 )' },
              { value: 'insta-view-4m', text: '4M INSTAGRAM VIEWS ₹4000 COMPLETE TIME 4 HOURS 18 MINUTES ( NON DROP SERVICE 💧 )' },
-             { value: 'insta-view-5m', text: '5M INSTAGRAM VIEWS ₹5000 COMPLETE TIME 5 HOURS 16 MINUTES ( NON DROP SERVICE 💧 )' },
-             { value: 'insta-view-6m', text: '6M INSTAGRAM VIEWS ₹6000 COMPLETE TIME 6 HOURS 26 MINUTES ( NON DROP SERVICE 💧 )' },
-             { value: 'insta-view-7m', text: '7M INSTAGRAM VIEWS ₹7000 COMPLETE TIME 7 HOURS 34 MINUTES ( NON DROP SERVICE 💧 )' },
-             { value: 'insta-view-8m', text: '8M INSTAGRAM VIEWS ₹8000 COMPLETE TIME 8 HOURS 40 MINUTES ( NON DROP SERVICE 💧 )' },
-             { value: 'insta-view-9m', text: '9M INSTAGRAM VIEWS ₹9000 COMPLETE TIME 9 HOURS 9 MINUTES ( NON DROP SERVICE 💧 )' },
-             { value: 'insta-view-10m', text: '10M INSTAGRAM VIEWS ₹10000 COMPLETE TIME 10 HOURS 20 MINUTES ( NON DROP SERVICE 💧 )' }
+             { value: 'insta-view-5m', text: '5M INSTAGRAM VIEWS ₹5000 COMPLETE TIME 5 HOURS 16 MINUTES ( NON DROP SERVICE 💧)' },
+             { value: 'insta-view-6m', text: '6M INSTAGRAM VIEWS ₹6000 COMPLETE TIME 6 HOURS 26 MINUTES ( NON DROP SERVICE 💧)' },
+             { value: 'insta-view-7m', text: '7M INSTAGRAM VIEWS ₹7000 COMPLETE TIME 7 HOURS 34 MINUTES ( NON DROP SERVICE 💧)' },
+             { value: 'insta-view-8m', text: '8M INSTAGRAM VIEWS ₹8000 COMPLETE TIME 8 HOURS 40 MINUTES ( NON DROP SERVICE 💧)' },
+             { value: 'insta-view-9m', text: '9M INSTAGRAM VIEWS ₹9000 COMPLETE TIME 9 HOURS 9 MINUTES ( NON DROP SERVICE 💧)' },
+             { value: 'insta-view-10m', text: '10M INSTAGRAM VIEWS ₹10000 COMPLETE TIME 10 HOURS 20 MINUTES ( NON DROP SERVICE 💧)' }
         ],
         'facebook': [
             { value: 'fb-views-1.5k', text: '1.5K Views non drop = ₹30' },
@@ -2484,246 +2534,152 @@ $(document).ready(function() {
         const $select = $('#' + selectId);
         const $container = $('#' + containerId);
         const $trigger = $('#' + selectId + '-custom');
-        
-        // 1. Clear existing options
+        const $wrapper = $trigger.closest('.custom-dropdown-wrapper');
+
+        // 1. Clear options and RESET GLOW because options changed (Platform Switch)
         $select.empty();
         $container.empty();
-
-        let firstOptionText = defaultPlaceholderText;
+        $wrapper.removeClass('filled'); // GLOW REMOVED (Reset)
         
-        // Add default placeholder if needed (important for validation/empty state)
+        // Reset Trigger Text to Placeholder
+        $trigger.find('.selected-value').text(defaultPlaceholderText);
+
         if (!options || options.length === 0) {
-             $select.append($('<option>', {
-                value: '',
-                text: defaultPlaceholderText,
-                disabled: true,
-                selected: true
-            }));
-             $trigger.find('.selected-value').text(defaultPlaceholderText);
-             return; // Stop if no options
+             $select.append($('<option>', { value: '', text: defaultPlaceholderText, disabled: true, selected: true }));
+             return;
         }
 
         // 2. Populate new options
         options.forEach((option, index) => {
-            // Add to hidden select
-            const $newOption = $('<option>', {
-                value: option.value,
-                text: option.text
-            });
-            
-            if (index === 0) {
-                $newOption.prop('selected', true);
-                firstOptionText = option.text;
-            }
-            $select.append($newOption);
-            
-            // Add to custom options container
-            const customOptionHtml = `<div class="custom-option${index === 0 ? ' selected' : ''}" data-value="${option.value}">${option.text}</div>`;
+            $select.append($('<option>', { value: option.value, text: option.text }));
+            const customOptionHtml = `<div class="custom-option" data-value="${option.value}">${option.text}</div>`;
             $container.append(customOptionHtml);
         });
         
-        // 3. Update Custom Trigger display
-        $trigger.find('.selected-value').text(firstOptionText);
-        
-        // Trigger change on the select
-        $select.trigger('change');
+        // Ensure hidden select has no value initially (so placeholder shows)
+        $select.val(''); 
     }
 
-    // Helper function to update all relevant dropdowns
-    function updateAllServiceDropdowns(platform) {
-        // 1. Update the platform dropdown's visual display (to match the button clicked)
-        const $platformSelect = $('#orderform-platform');
-        const $platformTrigger = $('#orderform-platform-custom');
-        const newPlatformText = $platformSelect.find(`option[value="${platform}"]`).text();
-        
-        $platformSelect.val(platform).trigger('change');
-        $platformTrigger.find('.selected-value').text(newPlatformText || 'Select Platform');
-        // Update the visual selection of the custom dropdown
-        $('#platform-options-container .custom-option').removeClass('selected');
-        $(`#platform-options-container .custom-option[data-value="${platform}"]`).addClass('selected');
-
-
-        // 2. Update Common Dropdowns (Likes and Views)
-        // Note: For YouTube, Likes will be hidden by logic below, but we still populate it just in case.
-        updateCustomDropdown(platform, 'orderform-likes-category', 'likes-options-container', likesOptionsData, 'Select Likes Plan');
-        updateCustomDropdown(platform, 'orderform-views-category', 'views-options-container', viewsOptionsData, 'Select Views Plan');
-
-        // 3. PLATFORM SPECIFIC LOGIC
-        if (platform === 'youtube') {
-            // YOUTUBE: 
-            // 1. Hide Followers
-            $('.followers-dropdown').slideUp(200); 
-            // 2. Hide Likes (AS PER REQUEST)
-            $('.likes-dropdown').slideUp(200); 
-            
-            // 3. Show Subscribers, Views, Watch Time (in that HTML order)
-            $('.subscribers-dropdown').slideDown(200); 
-            $('.views-dropdown').slideDown(200);
-            $('.watchtime-dropdown').slideDown(200);   
-            
-            // Populate specific YouTube data
-            updateCustomDropdown(platform, 'orderform-subscribers-category', 'subscribers-options-container', ytSubscribersData, 'Select Subscribers Plan');
-            updateCustomDropdown(platform, 'orderform-watchtime-category', 'watchtime-options-container', ytWatchTimeData, 'Select Watch Time Plan');
-        } else {
-            // OTHER PLATFORMS: 
-            // Show Followers, Show Likes, Show Views
-            $('.followers-dropdown').slideDown(200); 
-            $('.likes-dropdown').slideDown(200); 
-            $('.views-dropdown').slideDown(200); 
-
-            // Update followers data
-            updateCustomDropdown(platform, 'orderform-followers-category', 'followers-options-container', followersOptionsData, 'Select Followers Plan');
-            
-            // Hide YouTube specifics
-            $('.subscribers-dropdown').slideUp(200); 
-            $('.watchtime-dropdown').slideUp(200);   
-        }
-    }
-
-    // Function to populate custom options from the hidden <select> (Only for Platform select initially)
-    function populateCustomOptions(selectId, containerId) { 
-        const $select = $('#' + selectId);
-        const $container = $('#' + containerId);
-        $container.empty();
-
-        const $currentSelectedOption = $select.find('option:selected');
-        
-        if ($currentSelectedOption.length) {
-            $('#' + selectId + '-custom').find('.selected-value').html($currentSelectedOption.text());
-        }
-
-        $select.find('option').each(function() {
-            const $option = $(this);
-            const value = $option.val();
-            const text = $option.text();
-            
-            const optionHtml = `<div class="custom-option" data-value="${value}">${text}</div>`;
-            const $newOption = $(optionHtml);
-            
-            if ($option.is(':selected')) {
-                $newOption.addClass('selected');
-            }
-
-            $container.append($newOption);
-        });
-    }
+    // Populate Initial Platform Dropdown
+    const $platSelect = $('#orderform-platform');
+    const $platContainer = $('#platform-options-container');
+    $platContainer.empty();
     
-    // --- DROPDOWN EVENT HANDLERS ---
+    $platSelect.find('option').each(function() {
+        const val = $(this).val();
+        const txt = $(this).text();
+        const cls = $(this).is(':selected') ? 'selected' : '';
+        $platContainer.append(`<div class="custom-option ${cls}" data-value="${val}">${txt}</div>`);
+    });
+    
+    // Initial Glow for Platform if selected (Usually Instagram is default selected)
+    if($platSelect.val()){
+        $('#orderform-platform-custom').closest('.custom-dropdown-wrapper').addClass('filled');
+        // Set visual text
+        $('#orderform-platform-custom .selected-value').text($platSelect.find('option:selected').text());
+    }
 
-    // 1. Populate the Platform custom dropdown initially 
-    populateCustomOptions('orderform-platform', 'platform-options-container');
 
-    // Toggle dropdown (open/close)
+    // --- EVENT HANDLERS ---
+
+    // Toggle Open/Close
     $('.custom-select-trigger').on('click', function(e) {
         e.stopPropagation(); 
         const $wrapper = $(this).closest('.custom-dropdown-wrapper');
-        
-        // Close other open dropdowns
         $('.custom-dropdown-wrapper').not($wrapper).removeClass('active');
-        
-        // Toggle the current one
         $wrapper.toggleClass('active');
     });
 
-    // Handle option selection
+    // OPTION CLICK (SELECTION LOGIC)
     $('.custom-options-container').on('click', '.custom-option', function() {
         const $this = $(this);
         const selectedValue = $this.data('value');
         const $wrapper = $this.closest('.custom-dropdown-wrapper');
         const selectId = $wrapper.find('select').attr('id');
-        
         const displayHtml = $this.text(); 
 
-        // 1. Update the visual display
+        // 1. Set Text
         $wrapper.find('.selected-value').html(displayHtml);
 
-        // 2. Update the hidden original select 
+        // 2. Set Hidden Value
         const $hiddenSelect = $wrapper.find('select');
-        
         $hiddenSelect.val(selectedValue).trigger('change');
         
-        // 3. Close the dropdown and update selected class
-        $wrapper.removeClass('active');
+        // 3. UI Updates
+        $wrapper.removeClass('active'); // Close list
+        $wrapper.addClass('filled');    // **ADD GLOW HERE** (Only on selection)
+        
         $this.siblings().removeClass('selected');
         $this.addClass('selected');
         
-        // Check if the platform dropdown was changed to update Followers, Likes, and Views dropdowns
+        // 4. If Platform Changed -> Update other dropdowns
         if (selectId === 'orderform-platform') {
             const selectedPlatform = selectedValue;
             
+            // Remove glow from other dropdowns since they are resetting (content changed)
+            $('.followers-dropdown, .likes-dropdown, .views-dropdown, .subscribers-dropdown, .watchtime-dropdown').removeClass('filled');
+            // Reset text
+            $('.custom-select-trigger .selected-value').not($wrapper.find('.selected-value')).text('Select Plan');
+
             // Common Updates
             updateCustomDropdown(selectedPlatform, 'orderform-likes-category', 'likes-options-container', likesOptionsData, 'Select Likes Plan');
             updateCustomDropdown(selectedPlatform, 'orderform-views-category', 'views-options-container', viewsOptionsData, 'Select Views Plan'); 
             
-            // Toggle Logic (Same as updateAllServiceDropdowns)
+            // Show/Hide Sections
             if (selectedPlatform === 'youtube') {
-                $('.followers-dropdown').slideUp(200);
-                $('.likes-dropdown').slideUp(200); // Hide Likes
-                
-                $('.subscribers-dropdown').slideDown(200);
-                $('.views-dropdown').slideDown(200);
-                $('.watchtime-dropdown').slideDown(200);
+                $('.followers-dropdown, .likes-dropdown').slideUp(200);
+                $('.subscribers-dropdown, .views-dropdown, .watchtime-dropdown').slideDown(200);
                 
                 updateCustomDropdown(selectedPlatform, 'orderform-subscribers-category', 'subscribers-options-container', ytSubscribersData, 'Select Subscribers Plan');
                 updateCustomDropdown(selectedPlatform, 'orderform-watchtime-category', 'watchtime-options-container', ytWatchTimeData, 'Select Watch Time Plan');
             } else {
-                $('.followers-dropdown').slideDown(200);
-                $('.likes-dropdown').slideDown(200); // Show Likes
-                $('.views-dropdown').slideDown(200);
+                $('.followers-dropdown, .likes-dropdown, .views-dropdown').slideDown(200);
+                $('.subscribers-dropdown, .watchtime-dropdown').slideUp(200);
 
                 updateCustomDropdown(selectedPlatform, 'orderform-followers-category', 'followers-options-container', followersOptionsData, 'Select Followers Plan');
-                $('.subscribers-dropdown').slideUp(200);
-                $('.watchtime-dropdown').slideUp(200);
             }
         }
     });
     
-    // --- Platform Icon Click Handler ---
+    // Platform Icon Click (Mimics Dropdown Selection)
     $('.platforms-item button').on('click', function() {
       const platform = $(this).data('platform');
       
-      if (platform === 'all' || platform === $('#orderform-platform').val()) {
-           return; 
-      }
+      $('.platforms-item button').removeClass('active-platform');
+      $(this).addClass('active-platform');
       
-      updateAllServiceDropdowns(platform);
+      if (platform === 'all' || platform === $('#orderform-platform').val()) return;
+      
+      // Simulate Dropdown Selection
+      const $platWrapper = $('.platform-dropdown');
+      // Trigger click on custom option to run all logic (glow, reset others, etc.)
+      $platWrapper.find('.custom-option[data-value="'+platform+'"]').click();
     });
-    // --- END: Platform Icon Click Handler ---
+    
+    // Default Active Icon
+    $('.platforms-item button[data-platform="instagram"]').addClass('active-platform');
 
-    // Close dropdown when clicking outside
+    // Close on click outside
     $(document).on('click', function(e) {
         if (!$(e.target).closest('.custom-dropdown-wrapper').length) {
             $('.custom-dropdown-wrapper').removeClass('active');
         }
     });
     
-    // ** Initial Load of Follower, Likes, Views AND Subscribers Options (Step 4) **
+    // Initial Load Logic (Same as before, runs after definitions)
     const initialPlatform = $('#orderform-platform').val();
-    updateCustomDropdown(initialPlatform, 'orderform-likes-category', 'likes-options-container', likesOptionsData, 'Select Likes Plan');
-    updateCustomDropdown(initialPlatform, 'orderform-views-category', 'views-options-container', viewsOptionsData, 'Select Views Plan');
-
-    // Check platform specific logic on load
     if (initialPlatform === 'youtube') {
-        $('.followers-dropdown').hide();
-        $('.likes-dropdown').hide(); // Hide Likes
-        
-        $('.subscribers-dropdown').show();
-        $('.views-dropdown').show();
-        $('.watchtime-dropdown').show();
-        
+        $('.followers-dropdown, .likes-dropdown').hide();
+        $('.subscribers-dropdown, .views-dropdown, .watchtime-dropdown').show();
         updateCustomDropdown(initialPlatform, 'orderform-subscribers-category', 'subscribers-options-container', ytSubscribersData, 'Select Subscribers Plan');
         updateCustomDropdown(initialPlatform, 'orderform-watchtime-category', 'watchtime-options-container', ytWatchTimeData, 'Select Watch Time Plan');
     } else {
-        $('.followers-dropdown').show();
-        $('.likes-dropdown').show(); // Show Likes
-        $('.views-dropdown').show();
-        
+        $('.followers-dropdown, .likes-dropdown, .views-dropdown').show();
+        $('.subscribers-dropdown, .watchtime-dropdown').hide();
         updateCustomDropdown(initialPlatform, 'orderform-followers-category', 'followers-options-container', followersOptionsData, 'Select Followers Plan');
-        $('.subscribers-dropdown').hide();
-        $('.watchtime-dropdown').hide();
     }
-
-    
+    updateCustomDropdown(initialPlatform, 'orderform-likes-category', 'likes-options-container', likesOptionsData, 'Select Likes Plan');
+    updateCustomDropdown(initialPlatform, 'orderform-views-category', 'views-options-container', viewsOptionsData, 'Select Views Plan');
 });
 </script>
 <!-- ************************************************ -->
