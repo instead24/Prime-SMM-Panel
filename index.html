@@ -140,14 +140,25 @@
   opacity: 1;
 }
 
+/* --- UPDATED: Custom Option for Multiline Text --- */
 .custom-option {
-  padding: 0.75rem 1rem;
+  padding: 12px 15px; /* More padding for better spacing */
   cursor: pointer;
   transition: background-color 0.1s, color 0.1s;
   color: #333;
-  display: flex;
-  align-items: center;
+  display: block; /* Changed to BLOCK to allow new lines */
   border-bottom: 1px solid #eee; /* Separator */
+  line-height: 1.5;
+}
+
+/* --- ADDED: Style for the "New Line" text (BOLD & BLOCK) --- */
+.sub-text {
+    display: block; /* Forces new line */
+    font-weight: 800; /* Extra Bold like image */
+    color: #444; /* Dark grey for highlight */
+    margin-top: 5px; /* Space from main text */
+    font-size: 0.85em; /* Slightly smaller */
+    opacity: 0.9;
 }
 
 .custom-option:last-child {
@@ -2034,14 +2045,14 @@
               <div class="service-description-box">
                     <div class="alert"><span class="fas fa-exclamation-triangle"></span> Please Read the Description</div>
                     <ul>
-                        <li>- Link: Instagram Username</li>
+                        <li>- Link: ID/ Username/Channel</li>
                         <li>- Location: Worldwide 🌎</li>
-                        <li>- Quality: 100% Old Accounts with Posts</li>
+                        <li>- Quality: 100% Fast & Secure</li>
                         <li>- Start: 10-20 Minutes</li>
-                        <li>- Speed: Day 100K 🚀</li>
-                        <li>- Drop Rate: Low Drop</li>
-                        <li>- Refill Time: No Refill ⚠️</li>
-                        <li>- Cancel Button: Active 🚫</li>
+                        <li>- Speed: Day 104K 🚀</li>
+                        <li></li>
+                        <li>- Refill Time: LIFETIME  WARRANTY</li>
+                        <li></li>
                     </ul>
                     <span class="notes-title">Notes:</span>
                     <ul>
@@ -2220,7 +2231,7 @@ $(document).ready(function() {
         ],
         'instagram': [
             { value: 'insta-follow-1k', text: '1K INSTAGRAM FOLLOWERS ₹10 COMPLETE TIME 8 MINUTES LIFETIME WARRANTY' },
-            { value: 'insta-follow-2k', text: '2K INSTAGRAM FOLLOWERS ₹20 COMPLETE TIME 12  MINUTES LIFETIME WARRANTY' },
+            { value: 'insta-follow-2k', text: '2K INSTAGRAM FOLLOWERS ₹20 COMPLETE TIME 12 MINUTES LIFETIME WARRANTY' },
             { value: 'insta-follow-3k', text: '3K INSTAGRAM FOLLOWERS ₹30 COMPLETE TIME 15 MINUTES LIFETIME WARRANTY' },
             { value: 'insta-follow-4k', text: '4K INSTAGRAM FOLLOWERS ₹40 COMPLETE TIME 20 MINUTES LIFETIME WARRANTY' },
             { value: 'insta-follow-5k', text: '5K INSTAGRAM FOLLOWERS ₹50 COMPLETE TIME 24 MINUTES LIFETIME WARRANTY' },
@@ -2244,7 +2255,6 @@ $(document).ready(function() {
             { value: 'tw-followers-1', text: 'Twitter 50 RS. 100K Followers' },
             { value: 'tw-followers-2', text: 'Twitter 1000 RS. 140K Followers' } 
         ],
-        // Note: YouTube key is REMOVED from here so it doesn't show in Followers
         'telegram': [
             { value: 'tg-1k', text: '1K Followers non drop = ₹40' },
             { value: 'tg-2k', text: '2K Followers non drop = ₹90' },
@@ -2281,118 +2291,120 @@ $(document).ready(function() {
         ]
     };
 
-    // 2. UPDATED YOUTUBE SUBSCRIBERS DATA (Aapki List)
+    // --- YOUTUBE SUBSCRIBERS DATA (NEWLY ADDED) ---
     const ytSubscribersData = {
         'youtube': [
-            { value: 'yt-sub-1k', text: '1K YOUTUBE SUBSCRIBERS ₹100 COMPLETE TIME 16 MINUTES ( NON DROP SERVICE 💧)' },
-            { value: 'yt-sub-2k', text: '2K YOUTUBE SUBSCRIBERS ₹200 COMPLETE TIME 26 MINUTES ( NON DROP SERVICE 💧)' },
-            { value: 'yt-sub-3k', text: '3K YOUTUBE SUBSCRIBERS ₹300 COMPLETE TIME 38 MINUTES ( NON DROP SERVICE 💧)' },
-            { value: 'yt-sub-4k', text: '4K YOUTUBE SUBSCRIBERS ₹400 COMPLETE TIME 49 MINUTES ( NON DROP SERVICE 💧)' },
-            { value: 'yt-sub-5k', text: '5K YOUTUBE SUBSCRIBERS ₹500 COMPLETE TIME 56 MINUTES ( NON DROP SERVICE 💧)' },
-            { value: 'yt-sub-6k', text: '6K YOUTUBE SUBSCRIBERS ₹600 COMPLETE TIME 1 HOURS 11 MINUTES ( NON DROP SERVICE 💧)' },
-            { value: 'yt-sub-7k', text: '7K YOUTUBE SUBSCRIBERS ₹700 COMPLETE TIME 1 HOURS 30 MINUTES ( NON DROP SERVICE 💧)' },
-            { value: 'yt-sub-8k', text: '8K YOUTUBE SUBSCRIBERS ₹800 COMPLETE TIME 2 HOURS 24 MINUTES ( NON DROP SERVICE 💧)' },
-            { value: 'yt-sub-9k', text: '9K YOUTUBE SUBSCRIBERS ₹900 COMPLETE TIME 3 HOURS 42 MINUTES ( NON DROP SERVICE 💧)' },
-            { value: 'yt-sub-10k', text: '10K YOUTUBE SUBSCRIBERS ₹1000 COMPLETE TIME 4 HOURS 10 MINUTES ( NON DROP SERVICE 💧)' },
-            { value: 'yt-sub-20k', text: '20K YOUTUBE SUBSCRIBERS ₹2000 COMPLETE TIME 5 HOURS 9 MINUTES ( NON DROP SERVICE 💧)' },
-            { value: 'yt-sub-30k', text: '30K YOUTUBE SUBSCRIBERS ₹3000 COMPLETE TIME 5 HOURS 56 MINUTES ( NON DROP SERVICE 💧)' },
-            { value: 'yt-sub-40k', text: '40K YOUTUBE SUBSCRIBERS ₹4000 COMPLETE TIME 6 HOURS 29 MINUTES ( NON DROP SERVICE 💧)' },
-            { value: 'yt-sub-50k', text: '50K YOUTUBE SUBSCRIBERS ₹5000 COMPLETE TIME 7 HOURS 15 MINUTES ( NON DROP SERVICE 💧)' },
-            { value: 'yt-sub-60k', text: '60K YOUTUBE SUBSCRIBERS ₹6000 COMPLETE TIME 8 HOURS 19 MINUTES ( NON DROP SERVICE 💧)' },
-            { value: 'yt-sub-70k', text: '70K YOUTUBE SUBSCRIBERS ₹7000 COMPLETE TIME 9 HOURS 12 MINUTES ( NON DROP SERVICE 💧)' },
-            { value: 'yt-sub-80k', text: '80K YOUTUBE SUBSCRIBERS ₹8000 COMPLETE TIME 10 HOURS 44 MINUTES ( NON DROP SERVICE 💧)' },
-            { value: 'yt-sub-90k', text: '90K YOUTUBE SUBSCRIBERS ₹9000 COMPLETE TIME 11 HOURS 59 MINUTES ( NON DROP SERVICE 💧)' },
-            { value: 'yt-sub-100k', text: '100K YOUTUBE SUBSCRIBERS ₹10000 COMPLETE TIME 12 HOURS 56 MINUTES ( NON DROP SERVICE 💧)' },
-            { value: 'yt-sub-200k', text: '200K YOUTUBE SUBSCRIBERS ₹20000 COMPLETE TIME 13 HOURS 12 MINUTES ( NON DROP SERVICE 💧)' },
-            { value: 'yt-sub-300k', text: '300K YOUTUBE SUBSCRIBERS ₹30000 COMPLETE TIME 14 HOURS 11 MINUTES ( NON DROP SERVICE 💧)' },
-            { value: 'yt-sub-400k', text: '400K YOUTUBE SUBSCRIBERS ₹40000 COMPLETE TIME 15 HOURS 16 MINUTES ( NON DROP SERVICE 💧)' },
-            { value: 'yt-sub-500k', text: '500K YOUTUBE SUBSCRIBERS ₹50000 COMPLETE TIME 16 HOURS 8 MINUTES ( NON DROP SERVICE 💧)' },
-            { value: 'yt-sub-600k', text: '600K YOUTUBE SUBSCRIBERS ₹60000 COMPLETE TIME 17 HOURS 20 MINUTES ( NON DROP SERVICE 💧)' },
-            { value: 'yt-sub-700k', text: '700K YOUTUBE SUBSCRIBERS ₹70000 COMPLETE TIME 18 HOURS 32 MINUTES ( NON DROP SERVICE 💧)' },
-            { value: 'yt-sub-800k', text: '800K YOUTUBE SUBSCRIBERS ₹80000 COMPLETE TIME 19 HOURS 48 MINUTES ( NON DROP SERVICE 💧)' },
-            { value: 'yt-sub-900k', text: '900K YOUTUBE SUBSCRIBERS ₹90000 COMPLETE TIME 20 HOURS 44 MINUTES ( NON DROP SERVICE 💧)' },
-            { value: 'yt-sub-1m', text: '1M YOUTUBE SUBSCRIBERS ₹100000 COMPLETE TIME 21 HOURS 49 MINUTES ( NON DROP SERVICE 💧)' }
+            { value: 'yt-subs-1k', text: '1K YOUTUBE SUBSCRIBERS ₹100 COMPLETE TIME 16 MINUTES ( NON DROP SERVICE 💧)' },
+            { value: 'yt-subs-2k', text: '2K YOUTUBE SUBSCRIBERS ₹200 COMPLETE TIME 26 MINUTES ( NON DROP SERVICE 💧)' },
+            { value: 'yt-subs-3k', text: '3K YOUTUBE SUBSCRIBERS ₹300 COMPLETE TIME 38 MINUTES ( NON DROP SERVICE 💧)' },
+            { value: 'yt-subs-4k', text: '4K YOUTUBE SUBSCRIBERS ₹400 COMPLETE TIME 49 MINUTES ( NON DROP SERVICE 💧)' },
+            { value: 'yt-subs-5k', text: '5K YOUTUBE SUBSCRIBERS ₹500 COMPLETE TIME 56 MINUTES ( NON DROP SERVICE 💧)' },
+            { value: 'yt-subs-6k', text: '6K YOUTUBE SUBSCRIBERS ₹600 COMPLETE TIME 1 HOURS 11 MINUTES ( NON DROP SERVICE 💧)' },
+            { value: 'yt-subs-7k', text: '7K YOUTUBE SUBSCRIBERS ₹700 COMPLETE TIME 1 HOURS 30 MINUTES ( NON DROP SERVICE 💧)' },
+            { value: 'yt-subs-8k', text: '8K YOUTUBE SUBSCRIBERS ₹800 COMPLETE TIME 2 HOURS 24 MINUTES ( NON DROP SERVICE 💧)' },
+            { value: 'yt-subs-9k', text: '9K YOUTUBE SUBSCRIBERS ₹900 COMPLETE TIME 3 HOURS 42 MINUTES ( NON DROP SERVICE 💧)' },
+            { value: 'yt-subs-10k', text: '10K YOUTUBE SUBSCRIBERS ₹1000 COMPLETE TIME 4  HOURS 10 MINUTES ( NON DROP SERVICE 💧)' },
+            { value: 'yt-subs-20k', text: '20K YOUTUBE SUBSCRIBERS ₹2000 COMPLETE TIME 5 HOURS 9 MINUTES ( NON DROP SERVICE 💧)' },
+            { value: 'yt-subs-30k', text: '30K YOUTUBE SUBSCRIBERS ₹3000 COMPLETE TIME 5 HOURS 56 MINUTES ( NON DROP SERVICE 💧)' },
+            { value: 'yt-subs-40k', text: '40K YOUTUBE SUBSCRIBERS ₹4000 COMPLETE TIME 6 HOURS 29 MINUTES ( NON DROP SERVICE 💧)' },
+            { value: 'yt-subs-50k', text: '50K YOUTUBE SUBSCRIBERS ₹5000 COMPLETE TIME 7 HOURS 15 MINUTES ( NON DROP SERVICE 💧)' },
+            { value: 'yt-subs-60k', text: '60K YOUTUBE SUBSCRIBERS ₹6000 COMPLETE TIME 8 HOURS 19 MINUTES ( NON DROP SERVICE 💧)' },
+            { value: 'yt-subs-70k', text: '70K YOUTUBE SUBSCRIBERS ₹7000 COMPLETE TIME 9 HOURS 12 MINUTES ( NON DROP SERVICE 💧)' },
+            { value: 'yt-subs-80k', text: '80K YOUTUBE SUBSCRIBERS ₹8000 COMPLETE TIME 10 HOURS 44 MINUTES ( NON DROP SERVICE 💧)' },
+            { value: 'yt-subs-90k', text: '90K YOUTUBE SUBSCRIBERS ₹9000 COMPLETE TIME 11 HOURS 59 MINUTES ( NON DROP SERVICE 💧)' },
+            { value: 'yt-subs-100k', text: '100K YOUTUBE SUBSCRIBERS ₹10000 COMPLETE TIME 12 HOURS 56 MINUTES ( NON DROP SERVICE 💧)' },
+            { value: 'yt-subs-200k', text: '200K YOUTUBE SUBSCRIBERS ₹20000 COMPLETE TIME 13 HOURS 12 MINUTES ( NON DROP SERVICE 💧)' },
+            { value: 'yt-subs-300k', text: '300K YOUTUBE SUBSCRIBERS ₹30000 COMPLETE TIME 14 HOURS 11 MINUTES ( NON DROP SERVICE 💧)' },
+            { value: 'yt-subs-400k', text: '400K YOUTUBE SUBSCRIBERS ₹40000 COMPLETE TIME 15 HOURS 16 MINUTES ( NON DROP SERVICE 💧)' },
+            { value: 'yt-subs-500k', text: '500K YOUTUBE SUBSCRIBERS ₹50000 COMPLETE TIME 16 HOURS 8 MINUTES ( NON DROP SERVICE 💧)' },
+            { value: 'yt-subs-600k', text: '600K YOUTUBE SUBSCRIBERS ₹60000 COMPLETE TIME 17 HOURS 20 MINUTES ( NON DROP SERVICE 💧)' },
+            { value: 'yt-subs-700k', text: '700K YOUTUBE SUBSCRIBERS ₹70000 COMPLETE TIME 18 HOURS 32 MINUTES ( NON DROP SERVICE 💧)' },
+            { value: 'yt-subs-800k', text: '800K YOUTUBE SUBSCRIBERS ₹80000 COMPLETE TIME 19 HOURS 48 MINUTES ( NON DROP SERVICE 💧)' },
+            { value: 'yt-subs-900k', text: '900K YOUTUBE SUBSCRIBERS ₹90000 COMPLETE TIME 20  HOURS 44 MINUTES ( NON DROP SERVICE 💧)' },
+            { value: 'yt-subs-1m', text: '1M YOUTUBE SUBSCRIBERS ₹100000 COMPLETE TIME 21 HOURS 49 MINUTES ( NON DROP SERVICE 💧)' }
         ],
-        'other': [{ value: '', text: 'Not available' }]
+        'other': [
+            { value: '', text: 'Not available' }
+        ]
     };
-    
-    const likesOptionsData = {
-    'facebook': [
-        { value: 'fb-likes-1.5k', text: '1.5K likes non drop = ₹40' },
-        { value: 'fb-likes-2.5k', text: '2.5K likes non drop = ₹80' },
-        { value: 'fb-likes-3.5k', text: '3.5K likes non drop = ₹120' },
-        { value: 'fb-likes-4.5k', text: '4.5K likes non drop = ₹160' },
-        { value: 'fb-likes-5.5k', text: '5.5K likes non drop = ₹210' },
-        { value: 'fb-likes-6.5k', text: '6.5K likes non drop = ₹250' },
-        { value: 'fb-likes-7.5k', text: '7.5K likes non drop = ₹310' },
-        { value: 'fb-likes-8.5k', text: '8.5K likes non drop = ₹350' },
-        { value: 'fb-likes-9.5k', text: '9.5K likes non drop = ₹410' },
-        { value: 'fb-likes-10.5k', text: '10.5K likes non drop = ₹520' },
-        { value: 'fb-likes-11.5k', text: '11.5K likes non drop = ₹570' },
-        { value: 'fb-likes-12.5k', text: '12.5K likes non drop = ₹650' }
-    ],
-    'instagram': [
-        { value: 'insta-likes-10k', text: '10K INSTAGRAM LIKE ₹20 100% REAL INDIAN AUDIENCE COMPLETE TIME 12 MINUTES ( NON DROP SERVICE 💧)' },
-        { value: 'insta-likes-20k', text: '20K INSTAGRAM LIKE ₹40 100% REAL INDIAN AUDIENCE COMPLETE TIME 26 MINUTES ( NON DROP SERVICE 💧)' },
-        { value: 'insta-likes-30k', text: '30K INSTAGRAM LIKE ₹60 100% REAL INDIAN AUDIENCE COMPLETE TIME 31 MINUTES ( NON DROP SERVICE 💧)' },
-        { value: 'insta-likes-40k', text: '40K INSTAGRAM LIKE ₹80 100% REAL INDIAN AUDIENCE COMPLETE TIME 44 MINUTES ( NON DROP SERVICE 💧)' },
-        { value: 'insta-likes-50k', text: '50K INSTAGRAM LIKE ₹100 100% REAL INDIAN AUDIENCE COMPLETE TIME 59 MINUTES ( NON DROP SERVICE 💧)' },
-        { value: 'insta-likes-60k', text: '60K INSTAGRAM LIKE ₹120 100% REAL INDIAN AUDIENCE COMPLETE TIME 1 HOURS 12 MINUTES ( NON DROP SERVICE 💧)' },
-        { value: 'insta-likes-70k', text: '70K INSTAGRAM LIKE ₹140 100% REAL INDIAN AUDIENCE COMPLETE TIME 1 HOURS 28 MINUTES ( NON DROP SERVICE 💧)' },
-        { value: 'insta-likes-80k', text: '80K INSTAGRAM LIKE ₹160 100% REAL INDIAN AUDIENCE COMPLETE TIME 1 HOURS 32 MINUTES ( NON DROP SERVICE 💧)' },
-        { value: 'insta-likes-90k', text: '90K INSTAGRAM LIKE ₹180 100% REAL INDIAN AUDIENCE COMPLETE TIME 1 HOURS 51 MINUTES ( NON DROP SERVICE 💧)' },
-        { value: 'insta-likes-100k', text: '100K INSTAGRAM LIKE ₹200 100% REAL INDIAN AUDIENCE COMPLETE TIME 2 HOURS 11 MINUTES ( NON DROP SERVICE 💧)' },
-        { value: 'insta-likes-300k', text: '300K INSTAGRAM LIKE ₹600 100% REAL INDIAN AUDIENCE COMPLETE TIME 2 HOURS 31 MINUTES ( NON DROP SERVICE 💧)' },
-        { value: 'insta-likes-400k', text: '400K INSTAGRAM LIKE ₹800 100% REAL INDIAN AUDIENCE COMPLETE TIME 2 HOURS 59 MINUTES ( NON DROP SERVICE 💧)' },
-        { value: 'insta-likes-500k', text: '500K INSTAGRAM LIKE ₹1000 100% REAL INDIAN AUDIENCE COMPLETE TIME 4 HOURS 21 MINUTES ( NON DROP SERVICE 💧)' },
-        { value: 'insta-likes-600k', text: '600K INSTAGRAM LIKE ₹1200 100% REAL INDIAN AUDIENCE COMPLETE TIME 4 HOURS 18 MINUTES ( NON DROP SERVICE 💧)' },
-        { value: 'insta-likes-700k', text: '700K INSTAGRAM LIKE ₹1400 100% REAL INDIAN AUDIENCE COMPLETE TIME 5 HOURS 11 MINUTES ( NON DROP SERVICE 💧)' },
-        { value: 'insta-likes-800k', text: '800K INSTAGRAM LIKE ₹1600 100% REAL INDIAN AUDIENCE COMPLETE TIME 6 HOURS 44 MINUTES ( NON DROP SERVICE 💧)' },
-        { value: 'insta-likes-900k', text: '900K INSTAGRAM LIKE ₹1800 100% REAL INDIAN AUDIENCE COMPLETE TIME 7 HOURS 11 MINUTES ( NON DROP SERVICE 💧)' },
-        { value: 'insta-likes-1m', text: '1M INSTAGRAM LIKE ₹2000 100% REAL INDIAN AUDIENCE COMPLETE TIME 8 HOURS 11 MINUTES ( NON DROP SERVICE 💧)' },
-        { value: 'insta-likes-2m', text: '2M INSTAGRAM LIKE ₹4000 100% REAL INDIAN AUDIENCE COMPLETE TIME 9 HOURS 8 MINUTES ( NON DROP SERVICE 💧)' },
-        { value: 'insta-likes-3m', text: '3M INSTAGRAM LIKE ₹6000 100% REAL INDIAN AUDIENCE COMPLETE TIME 10 HOURS 21 MINUTES ( NON DROP SERVICE 💧)' },
-        { value: 'insta-likes-4m', text: '4M INSTAGRAM LIKE ₹8000 100% REAL INDIAN AUDIENCE COMPLETE TIME 11 HOURS 39 MINUTES ( NON DROP SERVICE 💧)' },
-        { value: 'insta-likes-5m', text: '5M INSTAGRAM LIKE ₹10000 100% REAL INDIAN AUDIENCE COMPLETE TIME 12 HOURS 19 MINUTES ( NON DROP SERVICE 💧)' },
-        { value: 'insta-likes-6m', text: '6M INSTAGRAM LIKE ₹12000 100% REAL INDIAN AUDIENCE COMPLETE TIME 13 HOURS 56 MINUTES ( NON DROP SERVICE 💧)' },
-        { value: 'insta-likes-7m', text: '7M INSTAGRAM LIKE ₹14000 100% REAL INDIAN AUDIENCE COMPLETE TIME 14 HOURS 40 MINUTES ( NON DROP SERVICE 💧)' },
-        { value: 'insta-likes-8m', text: '8M INSTAGRAM LIKE ₹16000 100% REAL INDIAN AUDIENCE COMPLETE TIME 15 HOURS 11 MINUTES ( NON DROP SERVICE 💧)' },
-        { value: 'insta-likes-9m', text: '9M INSTAGRAM LIKE ₹18000 100% REAL INDIAN AUDIENCE COMPLETE TIME 18 HOURS 2 MINUTES ( NON DROP SERVICE 💧)' },
-        { value: 'insta-likes-10m', text: '10M INSTAGRAM LIKE ₹20000 100% REAL INDIAN AUDIENCE COMPLETE TIME 19 HOURS 10 MINUTES ( NON DROP SERVICE 💧)' }
-    ],
-    'twitter': [
-        { value: 'tw-likes-1.5k', text: '1.5K likes = ₹29' },
-        { value: 'tw-likes-2.5k', text: '2.5K likes = ₹59' },
-        { value: 'tw-likes-3.5k', text: '3.5K likes = ₹130' },
-        { value: 'tw-likes-4.5k', text: '4.5K likes = ₹160' },
-        { value: 'tw-likes-5.5k', text: '5.5K likes = ₹230' },
-        { value: 'tw-likes-6.5k', text: '6.5K likes = ₹260' },
-        { value: 'tw-likes-7.5k', text: '7.5K likes = ₹330' },
-        { value: 'tw-likes-8.5k', text: '8.5K likes = ₹360' },
-        { value: 'tw-likes-9.5k', text: '9.5K likes = ₹430' },
-        { value: 'tw-likes-10k', text: '10K likes = ₹460' },
-        { value: 'tw-likes-11k', text: '11K likes = ₹530' },
-        { value: 'tw-likes-12k', text: '12K likes = ₹560' }
-    ],
-    // YouTube Likes REMOVED/IGNORED in JS logic, but data kept for safety
-    'youtube': [
-        { value: 'yt-likes-1', text: 'YouTube 50 RS. 100K likes' },
-        { value: 'yt-likes-2', text: 'YouTube 1000 RS. 140K likes' }
-    ],
-    'telegram': [
-        { value: 'tg-likes-1', text: 'Telegram 50 RS. 100K likes' },
-        { value: 'tg-likes-2', text: 'Telegram 1000 RS. 140K likes' }
-    ],
-    'whatsapp': [
-        { value: 'wa-likes-1', text: 'WhatsApp 50 RS. 100K likes' },
-        { value: 'wa-likes-2', text: 'WhatsApp 1000 RS. 140K likes' }
-    ],
-    'other': [
-        { value: 'other-plan-2', text: 'Other Services - Please Check Service Page (Likes)' }
-    ]
-};
 
-    // 3. UPDATED YOUTUBE VIEWS DATA (Aapki List)
+    // 2. UPDATED LIKES DATA (Instagram Updated)
+    const likesOptionsData = {
+        'facebook': [
+            { value: 'fb-likes-1.5k', text: '1.5K likes non drop = ₹40' },
+            { value: 'fb-likes-2.5k', text: '2.5K likes non drop = ₹80' },
+            { value: 'fb-likes-3.5k', text: '3.5K likes non drop = ₹120' },
+            { value: 'fb-likes-4.5k', text: '4.5K likes non drop = ₹160' },
+            { value: 'fb-likes-5.5k', text: '5.5K likes non drop = ₹210' },
+            { value: 'fb-likes-6.5k', text: '6.5K likes non drop = ₹250' },
+            { value: 'fb-likes-7.5k', text: '7.5K likes non drop = ₹310' },
+            { value: 'fb-likes-8.5k', text: '8.5K likes non drop = ₹350' },
+            { value: 'fb-likes-9.5k', text: '9.5K likes non drop = ₹410' },
+            { value: 'fb-likes-10.5k', text: '10.5K likes non drop = ₹520' },
+            { value: 'fb-likes-11.5k', text: '11.5K likes non drop = ₹570' },
+            { value: 'fb-likes-12.5k', text: '12.5K likes non drop = ₹650' }
+        ],
+        'instagram': [
+            { value: 'insta-likes-10k', text: '10K INSTAGRAM LIKE ₹20 100% REAL INDIAN AUDIENCE COMPLETE TIME 12 MINUTES ( NON DROP SERVICE 💧)' },
+            { value: 'insta-likes-20k', text: '20K INSTAGRAM LIKE ₹40 100% REAL INDIAN AUDIENCE COMPLETE TIME 26 MINUTES ( NON DROP SERVICE 💧)' },
+            { value: 'insta-likes-30k', text: '30K INSTAGRAM LIKE ₹60 100% REAL INDIAN AUDIENCE COMPLETE TIME 31 MINUTES ( NON DROP SERVICE 💧)' },
+            { value: 'insta-likes-40k', text: '40K INSTAGRAM LIKE ₹80 100% REAL INDIAN AUDIENCE COMPLETE TIME 44 MINUTES ( NON DROP SERVICE 💧)' },
+            { value: 'insta-likes-50k', text: '50K INSTAGRAM LIKE ₹100 100% REAL INDIAN AUDIENCE COMPLETE TIME 59 MINUTES ( NON DROP SERVICE 💧)' },
+            { value: 'insta-likes-60k', text: '60K INSTAGRAM LIKE ₹120 100% REAL INDIAN AUDIENCE COMPLETE TIME 1 HOURS 12 MINUTES ( NON DROP SERVICE 💧)' },
+            { value: 'insta-likes-70k', text: '70K INSTAGRAM LIKE ₹140 100% REAL INDIAN AUDIENCE COMPLETE TIME 1 HOURS 28 MINUTES ( NON DROP SERVICE 💧)' },
+            { value: 'insta-likes-80k', text: '80K INSTAGRAM LIKE ₹160 100% REAL INDIAN AUDIENCE COMPLETE TIME 1 HOURS 32 MINUTES ( NON DROP SERVICE 💧)' },
+            { value: 'insta-likes-9k', text: '90K INSTAGRAM LIKE ₹180 100% REAL INDIAN AUDIENCE COMPLETE TIME 1 HOURS 51 MINUTES ( NON DROP SERVICE 💧)' },
+            { value: 'insta-likes-100k', text: '100K INSTAGRAM LIKE ₹200 100% REAL INDIAN AUDIENCE COMPLETE TIME 2 HOURS 11 MINUTES ( NON DROP SERVICE 💧)' },
+            { value: 'insta-likes-300k', text: '300K INSTAGRAM LIKE ₹600 100% REAL INDIAN AUDIENCE COMPLETE TIME 2 HOURS 31 MINUTES ( NON DROP SERVICE 💧)' },
+            { value: 'insta-likes-400k', text: '400K INSTAGRAM LIKE ₹800 100% REAL INDIAN AUDIENCE COMPLETE TIME 2 HOURS 59 MINUTES ( NON DROP SERVICE 💧)' },
+            { value: 'insta-likes-500k', text: '500K INSTAGRAM LIKE ₹1000 100% REAL INDIAN AUDIENCE COMPLETE TIME 4 HOURS 21 MINUTES ( NON DROP SERVICE 💧)' },
+            { value: 'insta-likes-600k', text: '600K INSTAGRAM LIKE ₹1200 100% REAL INDIAN AUDIENCE COMPLETE TIME 4 HOURS 18 MINUTES ( NON DROP SERVICE 💧)' },
+            { value: 'insta-likes-700k', text: '700K INSTAGRAM LIKE ₹1400 100% REAL INDIAN AUDIENCE COMPLETE TIME 5 HOURS 11 MINUTES ( NON DROP SERVICE 💧)' },
+            { value: 'insta-likes-800k', text: '800K INSTAGRAM LIKE ₹1600 100% REAL INDIAN AUDIENCE COMPLETE TIME 6 HOURS 44 MINUTES ( NON DROP SERVICE 💧)' },
+            { value: 'insta-likes-900k', text: '900K INSTAGRAM LIKE ₹1800 100% REAL INDIAN AUDIENCE COMPLETE TIME 7 HOURS 11 MINUTES ( NON DROP SERVICE 💧)' },
+            { value: 'insta-likes-1m', text: '1M INSTAGRAM LIKE ₹2000 100% REAL INDIAN AUDIENCE COMPLETE TIME 8 HOURS 11 MINUTES ( NON DROP SERVICE 💧)' },
+            { value: 'insta-likes-2m', text: '2M INSTAGRAM LIKE ₹4000 100% REAL INDIAN AUDIENCE COMPLETE TIME 9 HOURS 8 MINUTES ( NON DROP SERVICE 💧)' },
+            { value: 'insta-likes-3m', text: '3M INSTAGRAM LIKE ₹6000 100% REAL INDIAN AUDIENCE COMPLETE TIME 10 HOURS 21 MINUTES ( NON DROP SERVICE 💧)' },
+            { value: 'insta-likes-4m', text: '4M INSTAGRAM LIKE ₹8000 100% REAL INDIAN AUDIENCE COMPLETE TIME 11 HOURS 39 MINUTES ( NON DROP SERVICE 💧)' },
+            { value: 'insta-likes-5m', text: '5M INSTAGRAM LIKE ₹10000 100% REAL INDIAN AUDIENCE COMPLETE TIME 12 HOURS 19 MINUTES ( NON DROP SERVICE 💧)' },
+            { value: 'insta-likes-6m', text: '6M INSTAGRAM LIKE ₹12000 100% REAL INDIAN AUDIENCE COMPLETE TIME 13 HOURS 56 MINUTES ( NON DROP SERVICE 💧)' },
+            { value: 'insta-likes-7m', text: '7M INSTAGRAM LIKE ₹14000 100% REAL INDIAN AUDIENCE COMPLETE TIME 14 HOURS 40 MINUTES ( NON DROP SERVICE 💧)' },
+            { value: 'insta-likes-8m', text: '8M INSTAGRAM LIKE ₹16000 100% REAL INDIAN AUDIENCE COMPLETE TIME 15 HOURS 11 MINUTES ( NON DROP SERVICE 💧)' },
+            { value: 'insta-likes-9m', text: '9M INSTAGRAM LIKE ₹18000 100% REAL INDIAN AUDIENCE COMPLETE TIME 18 HOURS 2 MINUTES ( NON DROP SERVICE 💧)' },
+            { value: 'insta-likes-10m', text: '10M INSTAGRAM LIKE ₹20000 100% REAL INDIAN AUDIENCE COMPLETE TIME 19 HOURS 10 MINUTES ( NON DROP SERVICE 💧)' }
+        ],
+        'twitter': [
+            { value: 'tw-likes-1.5k', text: '1.5K likes = ₹29' },
+            { value: 'tw-likes-2.5k', text: '2.5K likes = ₹59' },
+            { value: 'tw-likes-3.5k', text: '3.5K likes = ₹130' },
+            { value: 'tw-likes-4.5k', text: '4.5K likes = ₹160' },
+            { value: 'tw-likes-5.5k', text: '5.5K likes = ₹230' },
+            { value: 'tw-likes-6.5k', text: '6.5K likes = ₹260' },
+            { value: 'tw-likes-7.5k', text: '7.5K likes = ₹330' },
+            { value: 'tw-likes-8.5k', text: '8.5K likes = ₹360' },
+            { value: 'tw-likes-9.5k', text: '9.5K likes = ₹430' },
+            { value: 'tw-likes-10k', text: '10K likes = ₹460' },
+            { value: 'tw-likes-11k', text: '11K likes = ₹530' },
+            { value: 'tw-likes-12k', text: '12K likes = ₹560' }
+        ],
+        'youtube': [
+            { value: 'yt-likes-1', text: 'YouTube 50 RS. 100K likes' },
+            { value: 'yt-likes-2', text: 'YouTube 1000 RS. 140K likes' }
+        ],
+        'telegram': [
+            { value: 'tg-likes-1', text: 'Telegram 50 RS. 100K likes' },
+            { value: 'tg-likes-2', text: 'Telegram 1000 RS. 140K likes' }
+        ],
+        'whatsapp': [
+            { value: 'wa-likes-1', text: 'WhatsApp 50 RS. 100K likes' },
+            { value: 'wa-likes-2', text: 'WhatsApp 1000 RS. 140K likes' }
+        ],
+        'other': [
+            { value: 'other-plan-2', text: 'Other Services - Please Check Service Page (Likes)' }
+        ]
+    };
+
+    // 3. UPDATED VIEWS DATA (YouTube & Instagram Updated)
     const viewsOptionsData = {
         'youtube': [
             { value: 'yt-view-1k', text: '1K YOUTUBE VIEWS ₹30 COMPLETE TIME 14 MINUTES ( NON DROP SERVICE 💧)' },
@@ -2485,10 +2497,35 @@ $(document).ready(function() {
             { value: 'tw-views-12k', text: '12K Views = ₹1049' }
         ],
         'youtube': [
-            { value: 'yt-views-1', text: 'YouTube 50 RS. 100K views' },
-            { value: 'yt-views-2', text: 'YouTube 1000 RS. 140K views' }
+            { value: 'yt-view-1k', text: '1K YOUTUBE VIEWS ₹30 COMPLETE TIME 14 MINUTES ( NON DROP SERVICE 💧 )' },
+            { value: 'yt-view-2k', text: '2K YOUTUBE VIEWS ₹60 COMPLETE TIME 19 MINUTES ( NON DROP SERVICE 💧 )' },
+            { value: 'yt-view-3k', text: '3K YOUTUBE VIEWS ₹90 COMPLETE TIME 26 MINUTES ( NON DROP SERVICE 💧 )' },
+            { value: 'yt-view-4k', text: '4K YOUTUBE VIEWS ₹120 COMPLETE TIME 36 MINUTES ( NON DROP SERVICE 💧 )' },
+            { value: 'yt-view-5k', text: '5K YOUTUBE VIEWS ₹150 COMPLETE TIME 49 MINUTES ( NON DROP SERVICE 💧 )' },
+            { value: 'yt-view-6k', text: '6K YOUTUBE VIEWS ₹180 COMPLETE TIME 54 MINUTES ( NON DROP SERVICE 💧 )' },
+            { value: 'yt-view-7k', text: '7K YOUTUBE VIEWS ₹210 COMPLETE TIME 1 HOURS 11 MINUTES ( NON DROP SERVICE 💧 )' },
+            { value: 'yt-view-8k', text: '8K YOUTUBE VIEWS ₹240 COMPLETE TIME 1 HOURS 26 MINUTES ( NON DROP SERVICE 💧 )' },
+            { value: 'yt-view-9k', text: '9K YOUTUBE VIEWS ₹270 COMPLETE TIME 1 HOURS 31 MINUTES ( NON DROP SERVICE 💧 )' },
+            { value: 'yt-view-10k', text: '10K YOUTUBE VIEWS ₹300 COMPLETE TIME 1 HOURS 59 MINUTES ( NON DROP SERVICE 💧 )' },
+            { value: 'yt-view-20k', text: '20K YOUTUBE VIEWS ₹600 COMPLETE TIME 2 HOURS 19 MINUTES ( NON DROP SERVICE 💧 )' },
+            { value: 'yt-view-30k', text: '30K YOUTUBE VIEWS ₹900 COMPLETE TIME 3 HOURS 6 MINUTES ( NON DROP SERVICE 💧 )' },
+            { value: 'yt-view-40k', text: '40K YOUTUBE VIEWS ₹1200 COMPLETE TIME 3 HOURS 58 MINUTES ( NON DROP SERVICE 💧 )' },
+            { value: 'yt-view-50k', text: '50K YOUTUBE VIEWS ₹1500 COMPLETE TIME 4 HOURS 15 MINUTES ( NON DROP SERVICE 💧 )' },
+            { value: 'yt-view-60k', text: '60K YOUTUBE VIEWS ₹1800 COMPLETE TIME 5 HOURS 19 MINUTES ( NON DROP SERVICE 💧 )' },
+            { value: 'yt-view-70k', text: '70K YOUTUBE VIEWS ₹2100 COMPLETE TIME 5 HOURS 53 MINUTES ( NON DROP SERVICE 💧 )' },
+            { value: 'yt-view-80k', text: '80K YOUTUBE VIEWS ₹2400 COMPLETE TIME 6 HOURS 18 MINUTES ( NON DROP SERVICE 💧 )' },
+            { value: 'yt-view-90k', text: '90K YOUTUBE VIEWS ₹2700 COMPLETE TIME 7 HOURS 28 MINUTES ( NON DROP SERVICE 💧 )' },
+            { value: 'yt-view-100k', text: '100K YOUTUBE VIEWS ₹3000 COMPLETE TIME 8 HOURS 11 MINUTES ( NON DROP SERVICE 💧 )' },
+            { value: 'yt-view-200k', text: '200K YOUTUBE VIEWS ₹6000 COMPLETE TIME 9 HOURS 11 MINUTES ( NON DROP SERVICE 💧 )' },
+            { value: 'yt-view-300k', text: '300K YOUTUBE VIEWS ₹9000 COMPLETE TIME 10 HOURS 33 MINUTES ( NON DROP SERVICE 💧 )' },
+            { value: 'yt-view-400k', text: '400K YOUTUBE VIEWS ₹12000 COMPLETE TIME 11 HOURS 56 MINUTES ( NON DROP SERVICE 💧 )' },
+            { value: 'yt-view-500k', text: '500K YOUTUBE VIEWS ₹15000 COMPLETE TIME 12 HOURS 29 MINUTES ( NON DROP SERVICE 💧 )' },
+            { value: 'yt-view-600k', text: '600K YOUTUBE VIEWS ₹18000 COMPLETE TIME 13 HOURS 22 MINUTES ( NON DROP SERVICE 💧 )' },
+            { value: 'yt-view-700k', text: '700K YOUTUBE VIEWS ₹21000 COMPLETE TIME 14 HOURS 36 MINUTES ( NON DROP SERVICE 💧 )' },
+            { value: 'yt-view-800k', text: '800K YOUTUBE VIEWS ₹24000 COMPLETE TIME 15 HOURS 11 MINUTES ( NON DROP SERVICE 💧 )' },
+            { value: 'yt-view-900k', text: '900K YOUTUBE VIEWS ₹27000 COMPLETE TIME 16 HOURS 49 MINUTES ( NON DROP SERVICE 💧 )' },
+            { value: 'yt-view-1m', text: '1M YOUTUBE VIEWS ₹30000 COMPLETE TIME 18 HOURS 58 MINUTES ( NON DROP SERVICE 💧 )' }
         ],
-        // Fallback to 'other' for platforms without specific plans mentioned
         'telegram': [
             { value: 'tg-views-other', text: 'Other Services - Please Check Service Page (Views)' }
         ],
@@ -2500,23 +2537,23 @@ $(document).ready(function() {
         ]
     };
 
-    // 4. UPDATED YOUTUBE WATCH TIME DATA (Aapki List)
+    // 4. UPDATED YOUTUBE WATCH TIME DATA (NEWLY ADDED)
     const ytWatchTimeData = {
         'youtube': [
-            { value: 'yt-watch-500', text: '500 YOUTUBE WATCH TIME ₹100 COMPLETE TIME 46 MINUTES ( LIFE TIME WARRANTY SERVICE 💧)' },
-            { value: 'yt-watch-1k', text: '1K YOUTUBE WATCH TIME ₹200 COMPLETE TIME 1 HOURS 12 MINUTES ( LIFE TIME WARRANTY SERVICE 💧)' },
-            { value: 'yt-watch-1.5k', text: '1500 YOUTUBE WATCH TIME ₹300 COMPLETE TIME 1 HOURS 59 MINUTES ( LIFE TIME WARRANTY SERVICE 💧)' },
-            { value: 'yt-watch-2k', text: '2K YOUTUBE WATCH TIME ₹400 COMPLETE TIME 2 HOURS 9 MINUTES ( LIFE TIME WARRANTY SERVICE 💧)' },
-            { value: 'yt-watch-2.5k', text: '2500 YOUTUBE WATCH TIME ₹500 COMPLETE TIME 2 HOURS 56 MINUTES ( LIFE TIME WARRANTY SERVICE 💧)' },
-            { value: 'yt-watch-3k', text: '3K YOUTUBE WATCH TIME ₹600 COMPLETE TIME 3 HOURS 44 MINUTES ( LIFE TIME WARRANTY SERVICE 💧)' },
-            { value: 'yt-watch-3.5k', text: '3500 YOUTUBE WATCH TIME ₹700 COMPLETE TIME 4 HOURS 26 MINUTES ( LIFE TIME WARRANTY SERVICE 💧)' },
-            { value: 'yt-watch-4k', text: '4K YOUTUBE WATCH TIME ₹800 COMPLETE TIME 5 HOURS 26 MINUTES ( LIFE TIME WARRANTY SERVICE 💧)' },
-            { value: 'yt-watch-5k', text: '5K YOUTUBE WATCH TIME ₹1000 COMPLETE TIME 6 HOURS 10 MINUTES ( LIFE TIME WARRANTY SERVICE 💧)' },
-            { value: 'yt-watch-6k', text: '6K YOUTUBE WATCH TIME ₹1200 COMPLETE TIME 7 HOURS 38 MINUTES ( LIFE TIME WARRANTY SERVICE 💧)' },
-            { value: 'yt-watch-7k', text: '7K YOUTUBE WATCH TIME ₹1400 COMPLETE TIME 8 HOURS 52 MINUTES ( LIFE TIME WARRANTY SERVICE 💧)' },
-            { value: 'yt-watch-8k', text: '8K YOUTUBE WATCH TIME ₹1600 COMPLETE TIME 9 HOURS 12 MINUTES ( LIFE TIME WARRANTY SERVICE 💧)' },
-            { value: 'yt-watch-9k', text: '9K YOUTUBE WATCH TIME ₹1800 COMPLETE TIME 10 HOURS 49 MINUTES ( LIFE TIME WARRANTY SERVICE 💧)' },
-            { value: 'yt-watch-10k', text: '10K YOUTUBE WATCH TIME ₹2000 COMPLETE TIME 11 HOURS 4 MINUTES ( LIFE TIME WARRANTY SERVICE 💧)' }
+            { value: 'yt-watch-500', text: '500 YOUTUBE WATCH TIME ₹100 COMPLETE TIME 46 MINUTES ( LIFE TIME WARRANTY 💧)' },
+            { value: 'yt-watch-1k', text: '1K YOUTUBE WATCH TIME ₹200 COMPLETE TIME 1 HOURS 12 MINUTES ( LIFE TIME WARRANTY 💧)' },
+            { value: 'yt-watch-1.5k', text: '1500 YOUTUBE WATCH TIME ₹300 COMPLETE TIME 1 HOURS 59 MINUTES ( LIFE TIME WARRANTY 💧)' },
+            { value: 'yt-watch-2k', text: '2K YOUTUBE WATCH TIME ₹400 COMPLETE TIME 2 HOURS 9 MINUTES ( LIFE TIME WARRANTY 💧)' },
+            { value: 'yt-watch-2.5k', text: '2500 YOUTUBE WATCH TIME ₹500 COMPLETE TIME 2 HOURS 56 MINUTES ( LIFE TIME WARRANTY 💧)' },
+            { value: 'yt-watch-3k', text: '3K YOUTUBE WATCH TIME ₹600 COMPLETE TIME 3 HOURS 44 MINUTES ( LIFE TIME WARRANTY 💧)' },
+            { value: 'yt-watch-3.5k', text: '3500 YOUTUBE WATCH TIME ₹700 COMPLETE TIME 4 HOURS 26 MINUTES ( LIFE TIME WARRANTY 💧)' },
+            { value: 'yt-watch-4k', text: '4K YOUTUBE WATCH TIME ₹800 COMPLETE TIME 5 HOURS 26 MINUTES ( LIFE TIME WARRANTY 💧)' },
+            { value: 'yt-watch-5k', text: '5K YOUTUBE WATCH TIME ₹1000 COMPLETE TIME 6 HOURS 10 MINUTES ( LIFE TIME WARRANTY 💧)' },
+            { value: 'yt-watch-6k', text: '6K YOUTUBE WATCH TIME ₹1200 COMPLETE TIME 7 HOURS 38 MINUTES ( LIFE TIME WARRANTY 💧)' },
+            { value: 'yt-watch-7k', text: '7K YOUTUBE WATCH TIME ₹1400 COMPLETE TIME 8 HOURS 52 MINUTES ( LIFE TIME WARRANTY 💧)' },
+            { value: 'yt-watch-8k', text: '8K YOUTUBE WATCH TIME ₹1600 COMPLETE TIME 9 HOURS 12 MINUTES ( LIFE TIME WARRANTY 💧)' },
+            { value: 'yt-watch-9k', text: '9K YOUTUBE WATCH TIME ₹1800 COMPLETE TIME 10 HOURS 49 MINUTES ( LIFE TIME WARRANTY 💧)' },
+            { value: 'yt-watch-10k', text: '10K YOUTUBE WATCH TIME ₹2000 COMPLETE TIME 11 HOURS 4 MINUTES ( LIFE TIME WARRANTY 💧)' }
         ],
         'other': [
             { value: '', text: 'Not available' }
@@ -2564,10 +2601,37 @@ $(document).ready(function() {
              return; // Stop if no options
         }
 
-        // 2. Populate new options
+        // 2. Populate new options with HTML formatting for New Line
         options.forEach((option, index) => {
+            // Native Select (Hidden) - Isme plain text rahega
             $select.append($('<option>', { value: option.value, text: option.text }));
-            const customOptionHtml = `<div class="custom-option" data-value="${option.value}">${option.text}</div>`;
+            
+            // Custom Dropdown (Visible) - Isme HTML formatting hogi
+            let displayHtml = option.text;
+
+            // Logic to break line for specific keywords
+            
+            // Case 1: NON DROP SERVICE (with or without emoji)
+            if (displayHtml.includes("( NON DROP SERVICE 💧 )")) {
+                displayHtml = displayHtml.replace("( NON DROP SERVICE 💧 )", "<br><span class='sub-text'>( NON DROP SERVICE 💧 )</span>");
+            }
+            else if (displayHtml.includes("( NON DROP SERVICE 💧)")) {
+                displayHtml = displayHtml.replace("( NON DROP SERVICE 💧)", "<br><span class='sub-text'>( NON DROP SERVICE 💧)</span>");
+            }
+            else if (displayHtml.includes("( NON DROP SERVICE )")) {
+                displayHtml = displayHtml.replace("( NON DROP SERVICE )", "<br><span class='sub-text'>( NON DROP SERVICE )</span>");
+            }
+            
+            // Case 2: LIFE TIME WARRANTY (Added for YouTube Watch Time)
+            else if (displayHtml.includes("( LIFE TIME WARRANTY 💧)")) {
+                displayHtml = displayHtml.replace("( LIFE TIME WARRANTY 💧)", "<br><span class='sub-text'>( LIFE TIME WARRANTY 💧)</span>");
+            }
+            // Case 3: LIFETIME WARRANTY (Legacy support)
+            else if (displayHtml.includes("LIFETIME WARRANTY")) {
+                displayHtml = displayHtml.replace("LIFETIME WARRANTY", "<br><span class='sub-text'>LIFETIME WARRANTY</span>");
+            }
+
+            const customOptionHtml = `<div class="custom-option" data-value="${option.value}">${displayHtml}</div>`;
             $container.append(customOptionHtml);
         });
         
@@ -2613,6 +2677,9 @@ $(document).ready(function() {
             $('.views-dropdown').slideDown(200);
             $('.watchtime-dropdown').slideDown(200);   
             
+            // EXPLICITLY CALL UPDATE FOR VIEWS AGAIN TO BE SURE
+            updateCustomDropdown(platform, 'orderform-views-category', 'views-options-container', viewsOptionsData, 'Select Views Plan');
+
             updateCustomDropdown(platform, 'orderform-subscribers-category', 'subscribers-options-container', ytSubscribersData, 'Select Subscribers Plan');
             updateCustomDropdown(platform, 'orderform-watchtime-category', 'watchtime-options-container', ytWatchTimeData, 'Select Watch Time Plan');
         } else {
@@ -2676,7 +2743,7 @@ $(document).ready(function() {
         const $wrapper = $this.closest('.custom-dropdown-wrapper');
         const selectId = $wrapper.find('select').attr('id');
         
-        const displayHtml = $this.text(); 
+        const displayHtml = $this.html(); // Changed from .text() to .html() to capture the <br> and <span>
 
         // 1. Update the visual display
         $wrapper.find('.selected-value').html(displayHtml);
