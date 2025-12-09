@@ -2147,56 +2147,40 @@ $(document).ready(function() {
     const $logoutButton = $('#logoutButton'); 
 
     // 1. Initial State: Check History State on Load
-    // If the URL has #dashboard or history state says internal, show internal view.
     if (window.location.hash === '#dashboard') {
         $internalView.removeClass('hidden-content');
         $publicView.addClass('hidden-content');
     } else {
         $internalView.addClass('hidden-content');
         $publicView.removeClass('hidden-content');
-        // Set initial state
         window.history.replaceState({ view: 'public' }, null, '');
     }
 
-    // 2. Sign In Handler (from form button)
+    // 2. Sign In Handler
     $signInButton.on('click', function(e) {
         e.preventDefault(); 
-        
-        // PUSH STATE: This adds a new entry to the browser history
         window.history.pushState({ view: 'internal' }, null, '#dashboard');
-
-        // Toggle Views
         $publicView.addClass('hidden-content');
         $internalView.removeClass('hidden-content');
-        
-        // Scroll to top of the internal view
         $('html, body').scrollTop(0); 
     });
 
-    // 3. LISTEN FOR BACK BUTTON (popstate event)
+    // 3. LISTEN FOR BACK BUTTON
     $(window).on('popstate', function(event) {
         const state = event.originalEvent.state;
-        
-        // If state is null or view is 'public', go to Home View
         if (!state || state.view === 'public') {
             $internalView.addClass('hidden-content');
             $publicView.removeClass('hidden-content');
-        } 
-        // If state is 'internal', go to Dashboard View
-        else if (state.view === 'internal') {
+        } else if (state.view === 'internal') {
             $publicView.addClass('hidden-content');
             $internalView.removeClass('hidden-content');
         }
     });
 
-    // 4. Logout Handler (from internal view navbar link)
+    // 4. Logout Handler
     $logoutButton.on('click', function(e) {
         e.preventDefault();
-        
-        // Go back in history (simulates back button press) to clean up #dashboard from URL
         window.history.back();
-        
-        // Fallback UI update in case history.back doesn't trigger immediately
         setTimeout(function(){
             $internalView.addClass('hidden-content');
             $publicView.removeClass('hidden-content');
@@ -2204,30 +2188,41 @@ $(document).ready(function() {
         }, 50);
     });
 
-    // 5. Internal Menu Links - prevent page refresh for this single page demo
+    // 5. Internal Menu Links
     $('#menu-new-order, #sidebar-new-order').on('click', function(e) {
         e.preventDefault();
     });
 
 
     // ************************************************
-    // START: CUSTOM DROPDOWN DATA (UPDATED)
+    // START: CUSTOM DROPDOWN DATA (UPDATED WHATSAPP FOLLOWERS)
     // ************************************************
 
     const followersOptionsData = {
         'facebook': [
-            { value: 'fb-follow-1.5k', text: '1.5K Followers = ₹219' },
-            { value: 'fb-follow-2.5k', text: '2.5K Followers = ₹269' },
-            { value: 'fb-follow-3.5k', text: '3.5K Followers = ₹319' },
-            { value: 'fb-follow-4.5k', text: '4.5K Followers = ₹369' },
-            { value: 'fb-follow-5.5k', text: '5.5K Followers = ₹419' },
-            { value: 'fb-follow-6.5k', text: '6.5K Followers = ₹469' },
-            { value: 'fb-follow-7.5k', text: '7.5K Followers = ₹519' },
-            { value: 'fb-follow-8.5k', text: '8.5K Followers = ₹619' },
-            { value: 'fb-follow-9.5k', text: '9.5K Followers = ₹669' },
-            { value: 'fb-follow-10k', text: '10K Followers = ₹780' },
-            { value: 'fb-follow-11k', text: '11K Followers = ₹880' },
-            { value: 'fb-follow-12k', text: '12K Followers = ₹980' }
+            { value: 'fb-page-1k', text: '1K FACEBOOK PAGE FOLLOWERS ₹15 COMPLETE TIME 10 MINUTES NON DROP SERVICE 💧' },
+            { value: 'fb-page-2k', text: '2K FACEBOOK PAGE FOLLOWERS ₹30 COMPLETE TIME 16 MINUTES NON DROP SERVICE 💧' },
+            { value: 'fb-page-3k', text: '3K FACEBOOK PAGE FOLLOWERS ₹45 COMPLETE TIME 21 MINUTES NON DROP SERVICE 💧' },
+            { value: 'fb-page-4k', text: '4K FACEBOOK PAGE FOLLOWERS ₹60 COMPLETE TIME 28 MINUTES NON DROP SERVICE 💧' },
+            { value: 'fb-page-5k', text: '5K FACEBOOK PAGE FOLLOWERS ₹75 COMPLETE TIME 39 MINUTES NON DROP SERVICE 💧' },
+            { value: 'fb-page-6k', text: '6K FACEBOOK PAGE FOLLOWERS ₹90 COMPLETE TIME 45 MINUTES NON DROP SERVICE 💧' },
+            { value: 'fb-page-7k', text: '7K FACEBOOK PAGE FOLLOWERS ₹150 COMPLETE TIME 50 MINUTES NON DROP SERVICE 💧' },
+            { value: 'fb-page-8k', text: '8K FACEBOOK PAGE FOLLOWERS ₹120 COMPLETE TIME 56 MINUTES NON DROP SERVICE 💧' },
+            { value: 'fb-page-9k', text: '9K FACEBOOK PAGE FOLLOWERS ₹135 COMPLETE TIME 1 HOURS 6 MINUTES NON DROP SERVICE 💧' },
+            { value: 'fb-page-10k', text: '10K FACEBOOK PAGE FOLLOWERS ₹150 COMPLETE TIME 1 HOURS 13 MINUTES NON DROP SERVICE 💧' },
+            { value: 'fb-page-20k', text: '20K FACEBOOK PAGE FOLLOWERS ₹300 COMPLETE TIME 1 HOURS 58 MINUTES NON DROP SERVICE 💧' },
+            { value: 'fb-page-30k', text: '30K FACEBOOK PAGE FOLLOWERS ₹450 COMPLETE TIME 2 HOURS 11 MINUTES NON DROP SERVICE 💧' },
+            { value: 'fb-page-40k', text: '40K FACEBOOK PAGE FOLLOWERS ₹600 COMPLETE TIME 2 HOURS 46 MINUTES NON DROP SERVICE 💧' },
+            { value: 'fb-page-50k', text: '50K FACEBOOK PAGE FOLLOWERS ₹750 COMPLETE TIME 3 HOURS 10 MINUTES NON DROP SERVICE 💧' },
+            { value: 'fb-page-60k', text: '60K FACEBOOK PAGE FOLLOWERS ₹900 COMPLETE TIME 4 HOURS 9 MINUTES NON DROP SERVICE 💧' },
+            { value: 'fb-page-70k', text: '70K FACEBOOK PAGE FOLLOWERS ₹1050 COMPLETE TIME 5 HOURS 18 MINUTES NON DROP SERVICE 💧' },
+            { value: 'fb-page-80k', text: '80K FACEBOOK PAGE FOLLOWERS ₹1200 COMPLETE TIME 6 HOURS 23 MINUTES NON DROP SERVICE 💧' },
+            { value: 'fb-page-90k', text: '90K FACEBOOK PAGE FOLLOWERS ₹1350 COMPLETE TIME 7 HOURS 30 MINUTES NON DROP SERVICE 💧' },
+            { value: 'fb-page-100k', text: '100K FACEBOOK PAGE FOLLOWERS ₹1500 COMPLETE TIME 8 HOURS 59 MINUTES NON DROP SERVICE 💧' },
+            { value: 'fb-page-200k', text: '200K FACEBOOK PAGE FOLLOWERS ₹3000 COMPLETE TIME 9 HOURS 2 MINUTES NON DROP SERVICE 💧' },
+            { value: 'fb-page-300k', text: '300K FACEBOOK PAGE FOLLOWERS ₹4500 COMPLETE TIME 10 HOURS 5 MINUTES NON DROP SERVICE 💧' },
+            { value: 'fb-page-400k', text: '400K FACEBOOK PAGE FOLLOWERS ₹6000 COMPLETE TIME 11 HOURS 24 MINUTES NON DROP SERVICE 💧' },
+            { value: 'fb-page-500k', text: '500K FACEBOOK PAGE FOLLOWERS ₹7500 COMPLETE TIME 12 HOURS 36 MINUTES NON DROP SERVICE 💧' }
         ],
         'instagram': [
             { value: 'insta-follow-1k', text: '1K INSTAGRAM FOLLOWERS ₹10 COMPLETE TIME 8 MINUTES LIFETIME WARRANTY' },
@@ -2272,26 +2267,30 @@ $(document).ready(function() {
             { value: 'tg-14.5k', text: '14.5K Followers non drop = ₹690' }
         ],
         'whatsapp': [
-            { value: 'wa-1k', text: '1K Followers non Drop = ₹99' },
-            { value: 'wa-2k', text: '2K Followers non Drop = ₹149' },
-            { value: 'wa-3k', text: '3K Followers non Drop = ₹199' },
-            { value: 'wa-4k', text: '4K Followers non Drop = ₹249' },
-            { value: 'wa-5k', text: '5K Followers non Drop = ₹299' },
-            { value: 'wa-6k', text: '6K Followers non Drop = ₹349' },
-            { value: 'wa-7k', text: '7K Followers non Drop = ₹399' },
-            { value: 'wa-8k', text: '8K Followers non Drop = ₹449' },
-            { value: 'wa-9k', text: '9K Followers non Drop = ₹499' },
-            { value: 'wa-10.5k', text: '10.5K Followers non Drop = ₹549' },
-            { value: 'wa-11.5k', text: '11.5K Followers non Drop = ₹599' },
-            { value: 'wa-12.5k', text: '12.5K Followers non Drop = ₹649' },
-            { value: 'wa-13.5k', text: '13.5K Followers non Drop = ₹699' }
+            { value: 'wa-follow-1k', text: '1K WHATSAPP CHANNEL FOLLOWERS HQ GLOBAL ₹100 COMPLETE TIME 26 MINUTES LIFETIME WARRANTY' },
+            { value: 'wa-follow-2k', text: '2K WHATSAPP CHANNEL FOLLOWERS HQ GLOBAL ₹200 COMPLETE TIME 42 MINUTES LIFETIME WARRANTY' },
+            { value: 'wa-follow-3k', text: '3K WHATSAPP CHANNEL FOLLOWERS HQ GLOBAL ₹300 COMPLETE TIME 56 MINUTES LIFETIME WARRANTY' },
+            { value: 'wa-follow-4k', text: '4K WHATSAPP CHANNEL FOLLOWERS HQ GLOBAL ₹400 COMPLETE TIME 1 HOURS 2 MINUTES LIFETIME WARRANTY' },
+            { value: 'wa-follow-5k', text: '5K WHATSAPP CHANNEL FOLLOWERS HQ GLOBAL ₹500 COMPLETE TIME 1 HOURS 59 MINUTES LIFETIME WARRANTY' },
+            { value: 'wa-follow-6k', text: '6K WHATSAPP CHANNEL FOLLOWERS HQ GLOBAL ₹600 COMPLETE TIME 2 HOURS 16 MINUTES LIFETIME WARRANTY' },
+            { value: 'wa-follow-7k', text: '7K WHATSAPP CHANNEL FOLLOWERS HQ GLOBAL ₹700 COMPLETE TIME 3 HOURS 22 MINUTES LIFETIME WARRANTY' },
+            { value: 'wa-follow-8k', text: '8K WHATSAPP CHANNEL FOLLOWERS HQ GLOBAL ₹800 COMPLETE TIME 4 HOURS 12 MINUTES LIFETIME WARRANTY' },
+            { value: 'wa-follow-9k', text: '9K WHATSAPP CHANNEL FOLLOWERS HQ GLOBAL ₹900 COMPLETE TIME 5 HOURS 31 MINUTES LIFETIME WARRANTY' },
+            { value: 'wa-follow-10k', text: '10K WHATSAPP CHANNEL FOLLOWERS HQ GLOBAL ₹1000 COMPLETE TIME 6 HOURS 45 MINUTES LIFETIME WARRANTY' },
+            { value: 'wa-follow-20k', text: '20K WHATSAPP CHANNEL FOLLOWERS HQ GLOBAL ₹2000 COMPLETE TIME 7 HOURS 9 MINUTES LIFETIME WARRANTY' },
+            { value: 'wa-follow-30k', text: '30K WHATSAPP CHANNEL FOLLOWERS HQ GLOBAL ₹3000 COMPLETE TIME 8 HOURS 56 MINUTES LIFETIME WARRANTY' },
+            { value: 'wa-follow-50k', text: '50K WHATSAPP CHANNEL FOLLOWERS HQ GLOBAL ₹5000 COMPLETE TIME 9 HOURS 11 MINUTES LIFETIME WARRANTY' },
+            { value: 'wa-follow-70k', text: '70K WHATSAPP CHANNEL FOLLOWERS HQ GLOBAL ₹7000 COMPLETE TIME 10 HOURS 15 MINUTES LIFETIME WARRANTY' },
+            { value: 'wa-follow-80k', text: '80K WHATSAPP CHANNEL FOLLOWERS HQ GLOBAL ₹8000 COMPLETE TIME 11 HOURS 2 MINUTES LIFETIME WARRANTY' },
+            { value: 'wa-follow-90k', text: '90K WHATSAPP CHANNEL FOLLOWERS HQ GLOBAL ₹9000 COMPLETE TIME 12 HOURS 20 MINUTES LIFETIME WARRANTY' },
+            { value: 'wa-follow-100k', text: '100K WHATSAPP CHANNEL FOLLOWERS HQ GLOBAL ₹10000 COMPLETE TIME 13 HOURS 28 MINUTES LIFETIME WARRANTY' }
         ],
         'other': [
             { value: 'other-plan-1', text: 'Other Services - Please Check Service Page (Followers)' }
         ]
     };
 
-    // --- YOUTUBE SUBSCRIBERS DATA (NEWLY ADDED) ---
+    // --- YOUTUBE SUBSCRIBERS DATA ---
     const ytSubscribersData = {
         'youtube': [
             { value: 'yt-subs-1k', text: '1K YOUTUBE SUBSCRIBERS ₹100 COMPLETE TIME 16 MINUTES ( NON DROP SERVICE 💧)' },
@@ -2328,27 +2327,38 @@ $(document).ready(function() {
         ]
     };
 
-    // 2. UPDATED LIKES DATA (Instagram Updated)
+    // 2. UPDATED LIKES DATA
     const likesOptionsData = {
         'facebook': [
-            { value: 'fb-likes-1.5k', text: '1.5K likes non drop = ₹40' },
-            { value: 'fb-likes-2.5k', text: '2.5K likes non drop = ₹80' },
-            { value: 'fb-likes-3.5k', text: '3.5K likes non drop = ₹120' },
-            { value: 'fb-likes-4.5k', text: '4.5K likes non drop = ₹160' },
-            { value: 'fb-likes-5.5k', text: '5.5K likes non drop = ₹210' },
-            { value: 'fb-likes-6.5k', text: '6.5K likes non drop = ₹250' },
-            { value: 'fb-likes-7.5k', text: '7.5K likes non drop = ₹310' },
-            { value: 'fb-likes-8.5k', text: '8.5K likes non drop = ₹350' },
-            { value: 'fb-likes-9.5k', text: '9.5K likes non drop = ₹410' },
-            { value: 'fb-likes-10.5k', text: '10.5K likes non drop = ₹520' },
-            { value: 'fb-likes-11.5k', text: '11.5K likes non drop = ₹570' },
-            { value: 'fb-likes-12.5k', text: '12.5K likes non drop = ₹650' }
+            { value: 'fb-like-1k', text: '1K FACEBOOK PAGE LIKE ₹5 COMPLETE TIME 12 MINUTES NON DROP SERVICE 💧' },
+            { value: 'fb-like-2k', text: '2K FACEBOOK PAGE LIKE ₹10 COMPLETE TIME 15 MINUTES NON DROP SERVICE 💧' },
+            { value: 'fb-like-3k', text: '3K FACEBOOK PAGE LIKE ₹15 COMPLETE TIME 18 MINUTES NON DROP SERVICE 💧' },
+            { value: 'fb-like-4k', text: '4K FACEBOOK PAGE LIKE ₹20 COMPLETE TIME 21 MINUTES NON DROP SERVICE 💧' },
+            { value: 'fb-like-5k', text: '5K FACEBOOK PAGE LIKE ₹25 COMPLETE TIME 25 MINUTES NON DROP SERVICE 💧' },
+            { value: 'fb-like-6k', text: '6K FACEBOOK PAGE LIKE ₹30 COMPLETE TIME 28 MINUTES NON DROP SERVICE 💧' },
+            { value: 'fb-like-7k', text: '7K FACEBOOK PAGE LIKE ₹35 COMPLETE TIME 32 MINUTES NON DROP SERVICE 💧' },
+            { value: 'fb-like-8k', text: '8K FACEBOOK PAGE LIKE ₹40 COMPLETE TIME 39 MINUTES NON DROP SERVICE 💧' },
+            { value: 'fb-like-9k', text: '9K FACEBOOK PAGE LIKE ₹45 COMPLETE TIME 46 MINUTES NON DROP SERVICE 💧' },
+            { value: 'fb-like-10k', text: '10K FACEBOOK PAGE LIKE ₹50 COMPLETE TIME 53 MINUTES NON DROP SERVICE 💧' },
+            { value: 'fb-like-20k', text: '20K FACEBOOK PAGE LIKE 100 RS COMPLETE TIME ₹59 MINUTES NON DROP SERVICE 💧' },
+            { value: 'fb-like-30k', text: '30K FACEBOOK PAGE LIKE ₹150 COMPLETE TIME 1 HOURS 2 MINUTES NON DROP SERVICE 💧' },
+            { value: 'fb-like-40k', text: '40K FACEBOOK PAGE LIKE ₹200 COMPLETE TIME 1 HOURS 48 MINUTES NON DROP SERVICE 💧' },
+            { value: 'fb-like-50k', text: '50K FACEBOOK PAGE LIKE ₹250 COMPLETE TIME 2 HOURS 20 MINUTES NON DROP SERVICE 💧' },
+            { value: 'fb-like-60k', text: '60K FACEBOOK PAGE LIKE ₹300 COMPLETE TIME 3 HOURS 9 MINUTES NON DROP SERVICE 💧' },
+            { value: 'fb-like-70k', text: '70K FACEBOOK PAGE LIKE ₹350 COMPLETE TIME 4 HOURS 55 MINUTES NON DROP SERVICE 💧' },
+            { value: 'fb-like-80k', text: '80K FACEBOOK PAGE LIKE ₹400 COMPLETE TIME 5 HOURS 11 MINUTES NON DROP SERVICE 💧' },
+            { value: 'fb-like-90k', text: '90K FACEBOOK PAGE LIKE ₹450 COMPLETE TIME 6 HOURS 16 MINUTES NON DROP SERVICE 💧' },
+            { value: 'fb-like-100k', text: '100K FACEBOOK PAGE LIKE ₹500 COMPLETE TIME 7 HOURS 18 MINUTES NON DROP SERVICE 💧' },
+            { value: 'fb-like-200k', text: '200K FACEBOOK PAGE LIKE ₹1000 COMPLETE TIME 8 HOURS 22 MINUTES NON DROP SERVICE 💧' },
+            { value: 'fb-like-300k', text: '300K FACEBOOK PAGE LIKE ₹1500 COMPLETE TIME 9 HOURS 15 MINUTES NON DROP SERVICE 💧' },
+            { value: 'fb-like-400k', text: '400K FACEBOOK PAGE LIKE ₹2000 COMPLETE TIME 10 HOURS 46 MINUTES NON DROP SERVICE 💧' },
+            { value: 'fb-like-500k', text: '500K FACEBOOK PAGE LIKE ₹2500 COMPLETE TIME 11 HOURS 21 MINUTES NON DROP SERVICE 💧' }
         ],
         'instagram': [
             { value: 'insta-likes-10k', text: '10K INSTAGRAM LIKE ₹20 100% REAL INDIAN AUDIENCE COMPLETE TIME 12 MINUTES ( NON DROP SERVICE 💧)' },
             { value: 'insta-likes-20k', text: '20K INSTAGRAM LIKE ₹40 100% REAL INDIAN AUDIENCE COMPLETE TIME 26 MINUTES ( NON DROP SERVICE 💧)' },
             { value: 'insta-likes-30k', text: '30K INSTAGRAM LIKE ₹60 100% REAL INDIAN AUDIENCE COMPLETE TIME 31 MINUTES ( NON DROP SERVICE 💧)' },
-            { value: 'insta-likes-40k', text: '40K INSTAGRAM LIKE ₹80 100% REAL INDIAN AUDIENCE COMPLETE TIME 44 MINUTES ( NON DROP SERVICE 💧)' },
+            { value: 'insta-likes-4k', text: '40K INSTAGRAM LIKE ₹80 100% REAL INDIAN AUDIENCE COMPLETE TIME 44 MINUTES ( NON DROP SERVICE 💧)' },
             { value: 'insta-likes-50k', text: '50K INSTAGRAM LIKE ₹100 100% REAL INDIAN AUDIENCE COMPLETE TIME 59 MINUTES ( NON DROP SERVICE 💧)' },
             { value: 'insta-likes-60k', text: '60K INSTAGRAM LIKE ₹120 100% REAL INDIAN AUDIENCE COMPLETE TIME 1 HOURS 12 MINUTES ( NON DROP SERVICE 💧)' },
             { value: 'insta-likes-70k', text: '70K INSTAGRAM LIKE ₹140 100% REAL INDIAN AUDIENCE COMPLETE TIME 1 HOURS 28 MINUTES ( NON DROP SERVICE 💧)' },
@@ -2404,8 +2414,29 @@ $(document).ready(function() {
         ]
     };
 
-    // 3. UPDATED VIEWS DATA (YouTube & Instagram Updated)
+    // 3. UPDATED VIEWS DATA
     const viewsOptionsData = {
+        'facebook': [
+            { value: 'fb-view-10k', text: '10K FACEBOOK PAGE VIEWS ₹20 COMPLETE TIME 6 MINUTES NON DROP SERVICE 💧' },
+            { value: 'fb-view-20k', text: '20K FACEBOOK PAGE VIEWS ₹40 COMPLETE TIME 16 MINUTES NON DROP SERVICE 💧' },
+            { value: 'fb-view-30k', text: '30K FACEBOOK PAGE VIEWS ₹60 COMPLETE TIME 21 MINUTES NON DROP SERVICE 💧' },
+            { value: 'fb-view-40k', text: '40K FACEBOOK PAGE VIEWS ₹80 COMPLETE TIME 26 MINUTES NON DROP SERVICE 💧' },
+            { value: 'fb-view-50k', text: '50K FACEBOOK PAGE VIEWS ₹100 COMPLETE TIME 32 MINUTES NON DROP SERVICE 💧' },
+            { value: 'fb-view-60k', text: '60K FACEBOOK PAGE VIEWS ₹120 COMPLETE TIME 39 MINUTES NON DROP SERVICE 💧' },
+            { value: 'fb-view-70k', text: '70K FACEBOOK PAGE VIEWS ₹140 COMPLETE TIME 44 MINUTES NON DROP SERVICE 💧' },
+            { value: 'fb-view-80k', text: '80K FACEBOOK PAGE VIEWS ₹160 COMPLETE TIME 48 MINUTES NON DROP SERVICE 💧' },
+            { value: 'fb-view-90k', text: '90K FACEBOOK PAGE VIEWS ₹180 COMPLETE TIME 56 MINUTES NON DROP SERVICE 💧' },
+            { value: 'fb-view-100k', text: '100K FACEBOOK PAGE VIEWS ₹200 COMPLETE TIME 1 HOURS 2 MINUTES NON DROP SERVICE 💧' },
+            { value: 'fb-view-200k', text: '200K FACEBOOK PAGE VIEWS ₹400 COMPLETE TIME 1 HOURS 52 MINUTES NON DROP SERVICE 💧' },
+            { value: 'fb-view-300k', text: '300K FACEBOOK PAGE VIEWS ₹600 COMPLETE TIME 2 HOURS 18 MINUTES NON DROP SERVICE 💧' },
+            { value: 'fb-view-400k', text: '400K FACEBOOK PAGE VIEWS ₹800 COMPLETE TIME 3 HOURS 20 MINUTES NON DROP SERVICE 💧' },
+            { value: 'fb-view-500k', text: '500K FACEBOOK PAGE VIEWS ₹1000 COMPLETE TIME 4 HOURS 5 MINUTES NON DROP SERVICE 💧' },
+            { value: 'fb-view-600k', text: '600K FACEBOOK PAGE VIEWS ₹1200 COMPLETE TIME 5 HOURS 6 MINUTES NON DROP SERVICE 💧' },
+            { value: 'fb-view-700k', text: '700K FACEBOOK PAGE VIEWS ₹1400 COMPLETE TIME 6 HOURS 16 MINUTES NON DROP SERVICE 💧' },
+            { value: 'fb-view-800k', text: '800K FACEBOOK PAGE VIEWS ₹1600RS COMPLETE TIME 7 HOURS 11 MINUTES NON DROP SERVICE 💧' },
+            { value: 'fb-view-900k', text: '900K FACEBOOK PAGE VIEWS ₹1800 COMPLETE TIME 9 HOURS 40 MINUTES NON DROP SERVICE 💧' },
+            { value: 'fb-view-1m', text: '1M FACEBOOK PAGE VIEWS ₹2000 COMPLETE TIME 10 HOURS 13 MINUTES NON DROP SERVICE 💧' }
+        ],
         'youtube': [
             { value: 'yt-view-1k', text: '1K YOUTUBE VIEWS ₹30 COMPLETE TIME 14 MINUTES ( NON DROP SERVICE 💧)' },
             { value: 'yt-view-2k', text: '2K YOUTUBE VIEWS ₹60 COMPLETE TIME 19 MINUTES ( NON DROP SERVICE 💧)' },
@@ -2468,20 +2499,6 @@ $(document).ready(function() {
              { value: 'insta-view-9m', text: '9M INSTAGRAM VIEWS ₹9000 COMPLETE TIME 9 HOURS 9 MINUTES ( NON DROP SERVICE 💧 )' },
              { value: 'insta-view-10m', text: '10M INSTAGRAM VIEWS ₹10000 COMPLETE TIME 10 HOURS 20 MINUTES ( NON DROP SERVICE 💧 )' }
         ],
-        'facebook': [
-            { value: 'fb-views-1.5k', text: '1.5K Views non drop = ₹30' },
-            { value: 'fb-views-2.5k', text: '2.5K Views non drop = ₹60' },
-            { value: 'fb-views-3.5k', text: '3.5K Views non drop = ₹120' },
-            { value: 'fb-views-4.5k', text: '4.5K Views non drop = ₹160' },
-            { value: 'fb-views-5.5k', text: '5.5K Views non drop = ₹230' },
-            { value: 'fb-views-6.5k', text: '6.5K Views non drop = ₹260' },
-            { value: 'fb-views-7.5k', text: '7.5K Views non drop = ₹330' },
-            { value: 'fb-views-8.5k', text: '8.5K Views non drop = ₹360' },
-            { value: 'fb-views-9.5k', text: '9.5K Views non drop = ₹430' },
-            { value: 'fb-views-10.5k', text: '10.5K Views non drop = ₹460' },
-            { value: 'fb-views-11.5k', text: '11.5K Views non drop = ₹530' },
-            { value: 'fb-views-12.5k', text: '12.5K Views non drop = ₹560' }
-        ],
         'twitter': [
             { value: 'tw-views-1.5k', text: '1.5K Views = ₹99' },
             { value: 'tw-views-2.5k', text: '2.5K Views = ₹149' },
@@ -2496,36 +2513,6 @@ $(document).ready(function() {
             { value: 'tw-views-11k', text: '11K Views = ₹1099' },
             { value: 'tw-views-12k', text: '12K Views = ₹1049' }
         ],
-        'youtube': [
-            { value: 'yt-view-1k', text: '1K YOUTUBE VIEWS ₹30 COMPLETE TIME 14 MINUTES ( NON DROP SERVICE 💧 )' },
-            { value: 'yt-view-2k', text: '2K YOUTUBE VIEWS ₹60 COMPLETE TIME 19 MINUTES ( NON DROP SERVICE 💧 )' },
-            { value: 'yt-view-3k', text: '3K YOUTUBE VIEWS ₹90 COMPLETE TIME 26 MINUTES ( NON DROP SERVICE 💧 )' },
-            { value: 'yt-view-4k', text: '4K YOUTUBE VIEWS ₹120 COMPLETE TIME 36 MINUTES ( NON DROP SERVICE 💧 )' },
-            { value: 'yt-view-5k', text: '5K YOUTUBE VIEWS ₹150 COMPLETE TIME 49 MINUTES ( NON DROP SERVICE 💧 )' },
-            { value: 'yt-view-6k', text: '6K YOUTUBE VIEWS ₹180 COMPLETE TIME 54 MINUTES ( NON DROP SERVICE 💧 )' },
-            { value: 'yt-view-7k', text: '7K YOUTUBE VIEWS ₹210 COMPLETE TIME 1 HOURS 11 MINUTES ( NON DROP SERVICE 💧 )' },
-            { value: 'yt-view-8k', text: '8K YOUTUBE VIEWS ₹240 COMPLETE TIME 1 HOURS 26 MINUTES ( NON DROP SERVICE 💧 )' },
-            { value: 'yt-view-9k', text: '9K YOUTUBE VIEWS ₹270 COMPLETE TIME 1 HOURS 31 MINUTES ( NON DROP SERVICE 💧 )' },
-            { value: 'yt-view-10k', text: '10K YOUTUBE VIEWS ₹300 COMPLETE TIME 1 HOURS 59 MINUTES ( NON DROP SERVICE 💧 )' },
-            { value: 'yt-view-20k', text: '20K YOUTUBE VIEWS ₹600 COMPLETE TIME 2 HOURS 19 MINUTES ( NON DROP SERVICE 💧 )' },
-            { value: 'yt-view-30k', text: '30K YOUTUBE VIEWS ₹900 COMPLETE TIME 3 HOURS 6 MINUTES ( NON DROP SERVICE 💧 )' },
-            { value: 'yt-view-40k', text: '40K YOUTUBE VIEWS ₹1200 COMPLETE TIME 3 HOURS 58 MINUTES ( NON DROP SERVICE 💧 )' },
-            { value: 'yt-view-50k', text: '50K YOUTUBE VIEWS ₹1500 COMPLETE TIME 4 HOURS 15 MINUTES ( NON DROP SERVICE 💧 )' },
-            { value: 'yt-view-60k', text: '60K YOUTUBE VIEWS ₹1800 COMPLETE TIME 5 HOURS 19 MINUTES ( NON DROP SERVICE 💧 )' },
-            { value: 'yt-view-70k', text: '70K YOUTUBE VIEWS ₹2100 COMPLETE TIME 5 HOURS 53 MINUTES ( NON DROP SERVICE 💧 )' },
-            { value: 'yt-view-80k', text: '80K YOUTUBE VIEWS ₹2400 COMPLETE TIME 6 HOURS 18 MINUTES ( NON DROP SERVICE 💧 )' },
-            { value: 'yt-view-90k', text: '90K YOUTUBE VIEWS ₹2700 COMPLETE TIME 7 HOURS 28 MINUTES ( NON DROP SERVICE 💧 )' },
-            { value: 'yt-view-100k', text: '100K YOUTUBE VIEWS ₹3000 COMPLETE TIME 8 HOURS 11 MINUTES ( NON DROP SERVICE 💧 )' },
-            { value: 'yt-view-200k', text: '200K YOUTUBE VIEWS ₹6000 COMPLETE TIME 9 HOURS 11 MINUTES ( NON DROP SERVICE 💧 )' },
-            { value: 'yt-view-300k', text: '300K YOUTUBE VIEWS ₹9000 COMPLETE TIME 10 HOURS 33 MINUTES ( NON DROP SERVICE 💧 )' },
-            { value: 'yt-view-400k', text: '400K YOUTUBE VIEWS ₹12000 COMPLETE TIME 11 HOURS 56 MINUTES ( NON DROP SERVICE 💧 )' },
-            { value: 'yt-view-500k', text: '500K YOUTUBE VIEWS ₹15000 COMPLETE TIME 12 HOURS 29 MINUTES ( NON DROP SERVICE 💧 )' },
-            { value: 'yt-view-600k', text: '600K YOUTUBE VIEWS ₹18000 COMPLETE TIME 13 HOURS 22 MINUTES ( NON DROP SERVICE 💧 )' },
-            { value: 'yt-view-700k', text: '700K YOUTUBE VIEWS ₹21000 COMPLETE TIME 14 HOURS 36 MINUTES ( NON DROP SERVICE 💧 )' },
-            { value: 'yt-view-800k', text: '800K YOUTUBE VIEWS ₹24000 COMPLETE TIME 15 HOURS 11 MINUTES ( NON DROP SERVICE 💧 )' },
-            { value: 'yt-view-900k', text: '900K YOUTUBE VIEWS ₹27000 COMPLETE TIME 16 HOURS 49 MINUTES ( NON DROP SERVICE 💧 )' },
-            { value: 'yt-view-1m', text: '1M YOUTUBE VIEWS ₹30000 COMPLETE TIME 18 HOURS 58 MINUTES ( NON DROP SERVICE 💧 )' }
-        ],
         'telegram': [
             { value: 'tg-views-other', text: 'Other Services - Please Check Service Page (Views)' }
         ],
@@ -2537,7 +2524,7 @@ $(document).ready(function() {
         ]
     };
 
-    // 4. UPDATED YOUTUBE WATCH TIME DATA (NEWLY ADDED)
+    // 4. UPDATED YOUTUBE WATCH TIME DATA
     const ytWatchTimeData = {
         'youtube': [
             { value: 'yt-watch-500', text: '500 YOUTUBE WATCH TIME ₹100 COMPLETE TIME 46 MINUTES ( LIFE TIME WARRANTY 💧)' },
@@ -2562,7 +2549,6 @@ $(document).ready(function() {
     
     // --- DROPDOWN LOGIC FUNCTIONS ---
 
-    // 1. Map for Nice Display Names (NEW ADDITION)
     const platformNames = {
         'instagram': 'Instagram',
         'facebook': 'Facebook',
@@ -2573,7 +2559,6 @@ $(document).ready(function() {
         'other': 'Other'
     };
 
-    // General function to update any dropdown
     function updateCustomDropdown(platform, selectId, containerId, dataOptions, defaultPlaceholderText) {
         const options = dataOptions[platform] || dataOptions['other'];
         
@@ -2582,12 +2567,10 @@ $(document).ready(function() {
         const $trigger = $('#' + selectId + '-custom');
         const $wrapper = $trigger.closest('.custom-dropdown-wrapper');
 
-        // 1. Clear options and RESET GLOW because options changed (Platform Switch)
         $select.empty();
         $container.empty();
-        $wrapper.removeClass('filled'); // GLOW REMOVED (Reset)
+        $wrapper.removeClass('filled');
         
-        // Reset Trigger Text to Placeholder
         $trigger.find('.selected-value').text(defaultPlaceholderText);
 
         if (!options || options.length === 0) {
@@ -2598,35 +2581,30 @@ $(document).ready(function() {
                 selected: true
             }));
              $trigger.find('.selected-value').text(defaultPlaceholderText);
-             return; // Stop if no options
+             return; 
         }
 
-        // 2. Populate new options with HTML formatting for New Line
         options.forEach((option, index) => {
-            // Native Select (Hidden) - Isme plain text rahega
             $select.append($('<option>', { value: option.value, text: option.text }));
             
-            // Custom Dropdown (Visible) - Isme HTML formatting hogi
             let displayHtml = option.text;
 
-            // Logic to break line for specific keywords
-            
-            // Case 1: NON DROP SERVICE (with or without emoji)
+            // Updated Formatting Logic
             if (displayHtml.includes("( NON DROP SERVICE 💧 )")) {
                 displayHtml = displayHtml.replace("( NON DROP SERVICE 💧 )", "<br><span class='sub-text'>( NON DROP SERVICE 💧 )</span>");
             }
             else if (displayHtml.includes("( NON DROP SERVICE 💧)")) {
                 displayHtml = displayHtml.replace("( NON DROP SERVICE 💧)", "<br><span class='sub-text'>( NON DROP SERVICE 💧)</span>");
             }
+            else if (displayHtml.includes("NON DROP SERVICE 💧")) {
+                displayHtml = displayHtml.replace("NON DROP SERVICE 💧", "<br><span class='sub-text'>NON DROP SERVICE 💧</span>");
+            }
             else if (displayHtml.includes("( NON DROP SERVICE )")) {
                 displayHtml = displayHtml.replace("( NON DROP SERVICE )", "<br><span class='sub-text'>( NON DROP SERVICE )</span>");
             }
-            
-            // Case 2: LIFE TIME WARRANTY (Added for YouTube Watch Time)
             else if (displayHtml.includes("( LIFE TIME WARRANTY 💧)")) {
                 displayHtml = displayHtml.replace("( LIFE TIME WARRANTY 💧)", "<br><span class='sub-text'>( LIFE TIME WARRANTY 💧)</span>");
             }
-            // Case 3: LIFETIME WARRANTY (Legacy support)
             else if (displayHtml.includes("LIFETIME WARRANTY")) {
                 displayHtml = displayHtml.replace("LIFETIME WARRANTY", "<br><span class='sub-text'>LIFETIME WARRANTY</span>");
             }
@@ -2635,41 +2613,31 @@ $(document).ready(function() {
             $container.append(customOptionHtml);
         });
         
-        // Ensure hidden select has no value initially (so placeholder shows)
         $select.val(''); 
     }
 
-    // Helper function to update all relevant dropdowns
     function updateAllServiceDropdowns(platform) {
-        // 1. Update the platform dropdown's visual display
         const $platformSelect = $('#orderform-platform');
         const $platformTrigger = $('#orderform-platform-custom');
         const newPlatformText = $platformSelect.find(`option[value="${platform}"]`).text();
         
         $platformSelect.val(platform).trigger('change');
         $platformTrigger.find('.selected-value').text(newPlatformText || 'Select Platform');
-        // Update the visual selection of the custom dropdown
         $('#platform-options-container .custom-option').removeClass('selected');
         $(`#platform-options-container .custom-option[data-value="${platform}"]`).addClass('selected');
 
-        // *** NEW LOGIC: Update Label Text Dynamically ***
-        const niceName = platformNames[platform] || 'Service'; // e.g., "Instagram"
+        const niceName = platformNames[platform] || 'Service';
         
         $('label[for="orderform-followers-category"]').text(niceName + ' Followers');
         $('label[for="orderform-likes-category"]').text(niceName + ' Likes');
         $('label[for="orderform-views-category"]').text(niceName + ' Views');
         $('label[for="orderform-subscribers-category"]').text(niceName + ' Subscribers');
         $('label[for="orderform-watchtime-category"]').text(niceName + ' Watch Time');
-        // *** END NEW LOGIC ***
 
-
-        // 2. Update Common Dropdowns (Likes and Views)
         updateCustomDropdown(platform, 'orderform-likes-category', 'likes-options-container', likesOptionsData, 'Select Likes Plan');
         updateCustomDropdown(platform, 'orderform-views-category', 'views-options-container', viewsOptionsData, 'Select Views Plan');
 
-        // 3. PLATFORM SPECIFIC LOGIC
         if (platform === 'youtube') {
-            // YOUTUBE: 
             $('.followers-dropdown').slideUp(200); 
             $('.likes-dropdown').slideUp(200); 
             
@@ -2677,13 +2645,10 @@ $(document).ready(function() {
             $('.views-dropdown').slideDown(200);
             $('.watchtime-dropdown').slideDown(200);   
             
-            // EXPLICITLY CALL UPDATE FOR VIEWS AGAIN TO BE SURE
             updateCustomDropdown(platform, 'orderform-views-category', 'views-options-container', viewsOptionsData, 'Select Views Plan');
-
             updateCustomDropdown(platform, 'orderform-subscribers-category', 'subscribers-options-container', ytSubscribersData, 'Select Subscribers Plan');
             updateCustomDropdown(platform, 'orderform-watchtime-category', 'watchtime-options-container', ytWatchTimeData, 'Select Watch Time Plan');
         } else {
-            // OTHER PLATFORMS: 
             $('.followers-dropdown').slideDown(200); 
             $('.likes-dropdown').slideDown(200); 
             $('.views-dropdown').slideDown(200); 
@@ -2695,7 +2660,6 @@ $(document).ready(function() {
         }
     }
 
-    // Function to populate custom options from the hidden <select> (Only for Platform select initially)
     function populateCustomOptions(selectId, containerId) { 
         const $select = $('#' + selectId);
         const $container = $('#' + containerId);
@@ -2725,10 +2689,8 @@ $(document).ready(function() {
     
     // --- DROPDOWN EVENT HANDLERS ---
 
-    // 1. Populate the Platform custom dropdown initially 
     populateCustomOptions('orderform-platform', 'platform-options-container');
 
-    // Toggle dropdown (open/close)
     $('.custom-select-trigger').on('click', function(e) {
         e.stopPropagation(); 
         const $wrapper = $(this).closest('.custom-dropdown-wrapper');
@@ -2736,49 +2698,35 @@ $(document).ready(function() {
         $wrapper.toggleClass('active');
     });
 
-    // Handle option selection
     $('.custom-options-container').on('click', '.custom-option', function() {
         const $this = $(this);
         const selectedValue = $this.data('value');
         const $wrapper = $this.closest('.custom-dropdown-wrapper');
         const selectId = $wrapper.find('select').attr('id');
         
-        const displayHtml = $this.html(); // Changed from .text() to .html() to capture the <br> and <span>
+        const displayHtml = $this.html(); 
 
-        // 1. Update the visual display
         $wrapper.find('.selected-value').html(displayHtml);
 
-        // 2. Update the hidden original select 
         const $hiddenSelect = $wrapper.find('select');
         $hiddenSelect.val(selectedValue).trigger('change');
         
-        // 3. Highlight Logic & Close Dropdown
-        $wrapper.removeClass('active'); // Close list
-        $wrapper.addClass('filled');    // **ADD GLOW HERE** (Only on selection)
+        $wrapper.removeClass('active'); 
+        $wrapper.addClass('filled');    
         
         $this.siblings().removeClass('selected');
         $this.addClass('selected');
         
-        // 4. If Platform Changed -> Update other dropdowns
         if (selectId === 'orderform-platform') {
             const selectedPlatform = selectedValue;
             
-            // Remove glow from other dropdowns since they are resetting (content changed)
             $('.followers-dropdown, .likes-dropdown, .views-dropdown, .subscribers-dropdown, .watchtime-dropdown').removeClass('filled');
-            // Reset text
             $('.custom-select-trigger .selected-value').not($wrapper.find('.selected-value')).text('Select Plan');
 
-            // Common Updates
-            updateCustomDropdown(selectedPlatform, 'orderform-likes-category', 'likes-options-container', likesOptionsData, 'Select Likes Plan');
-            updateCustomDropdown(selectedPlatform, 'orderform-views-category', 'views-options-container', viewsOptionsData, 'Select Views Plan'); 
-            
-            // Show/Hide Sections & Update Labels Logic (inside updateAllServiceDropdowns logic mostly, let's trigger it directly via helper or duplicating logic)
-            // Actually, best to call the main updater to sync labels too
             updateAllServiceDropdowns(selectedPlatform);
         }
     });
     
-    // Platform Icon Click (Mimics Dropdown Selection)
     $('.platforms-item button').on('click', function() {
       const platform = $(this).data('platform');
       
@@ -2790,21 +2738,20 @@ $(document).ready(function() {
       updateAllServiceDropdowns(platform);
     });
     
-    // Default Active Icon
     $('.platforms-item button[data-platform="instagram"]').addClass('active-platform');
 
-    // Close on click outside
     $(document).on('click', function(e) {
         if (!$(e.target).closest('.custom-dropdown-wrapper').length) {
             $('.custom-dropdown-wrapper').removeClass('active');
         }
     });
     
-    // Initial Load Logic
     const initialPlatform = $('#orderform-platform').val();
-    // Run update once to set correct labels on load
     updateAllServiceDropdowns(initialPlatform);
 });
+</script>
+    
+
 </script>
 <!-- ************************************************ -->
 <!-- END: Custom Dropdown & Page Toggle JavaScript -->
