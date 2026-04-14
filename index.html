@@ -216,7 +216,7 @@
                                     </div>
                                     <div class="custom-col">
                                         <div class="form-group ">
-                                            <label>Email</label>
+                                            <label>Phone Number</label>
                                             <input class="form-control" type="text" name="LoginForm[phone]"/>
                                         </div>
                                     </div>
@@ -239,7 +239,7 @@
                                 <div class="form-row">
                                     <div class="custom-col">
                                         <div class="form-group d-flex component_button_submit ">
-                                            <button class="btn btn-big-primary" type="submit">Sign in</button>
+                                            <button class="btn btn-big-primary" type="submit">Get Start</button>
                                         </div>
                                     </div>
                                 </div>
@@ -975,7 +975,7 @@
                                                                                </a>
                                         </li>
                                                                    <li class="nav-item component-navbar-nav-item component-navbar-private-nav-item">
-                                           <a class="component-navbar-nav-link  component-navbar-nav-link__navbar-private " href="/addfunds" >
+                                           <a class="component-navbar-nav-link  component-navbar-nav-link__navbar-private " href="https://instead24.github.io/Prime-SMM-Panel-Fund/" >
                                                                                              <span class="component-navbar-nav-link-icon">
                                                       <span class="fas fa-rupee-sign"></span>
                                                     </span>
@@ -1259,7 +1259,7 @@
                                                          </a>
                             </li>
                                            <li class="component-sidebar__menu-item ">
-                                <a class="component-sidebar__menu-item-link" href="/addfunds" >
+                                <a class="component-sidebar__menu-item-link" href="https://instead24.github.io/Prime-SMM-Panel-Fund/" >
                                                                  <span class="sidebar-block__menu-item-icon">
                                          <span class="fas fa-rupee-sign"></span>
                                         </span>
@@ -1498,10 +1498,10 @@
            <label for="orderform-followers-category" class="control-label">Followers</label> 
            
            <select class="form-control d-none" id="orderform-followers-category" name="OrderForm[followers_category]">
-             <option value="" selected disabled>Choose</option>
+             <option value="" selected disabled>Choose Followers Plan</option>
            </select>
            <div class="custom-select-trigger" id="orderform-followers-category-custom">
-             <span class="selected-value">Choose</span> 
+             <span class="selected-value">Choose Followers Plan</span> 
              <i class="fas fa-chevron-down dropdown-arrow"></i>
            </div>
            <div class="custom-options-container" id="followers-options-container"></div>
@@ -1514,10 +1514,10 @@
            <label for="orderform-likes-category" class="control-label">Likes</label> 
            
            <select class="form-control d-none" id="orderform-likes-category" name="OrderForm[likes_category]">
-             <option value="" selected disabled>Choose</option>
+             <option value="" selected disabled>Choose Like Plan</option>
            </select>
            <div class="custom-select-trigger" id="orderform-likes-category-custom">
-             <span class="selected-value">Choose</span> 
+             <span class="selected-value">Choose Like Plan</span> 
              <i class="fas fa-chevron-down dropdown-arrow"></i>
            </div>
            <div class="custom-options-container" id="likes-options-container"></div>
@@ -1530,10 +1530,10 @@
            <label for="orderform-views-category" class="control-label">Views</label> 
            
            <select class="form-control d-none" id="orderform-views-category" name="OrderForm[views_category]">
-             <option value="" selected disabled>Choose</option>
+             <option value="" selected disabled>Choose views plan</option>
            </select>
            <div class="custom-select-trigger" id="orderform-views-category-custom">
-             <span class="selected-value">Choose</span> 
+             <span class="selected-value">Choose views plan</span> 
              <i class="fas fa-chevron-down dropdown-arrow"></i>
            </div>
            <div class="custom-options-container" id="views-options-container"></div>
@@ -1546,10 +1546,10 @@
            <label for="orderform-subscribers-category" class="control-label">Subscribers</label> 
            
            <select class="form-control d-none" id="orderform-subscribers-category" name="OrderForm[subscribers_category]">
-             <option value="" selected disabled>Choose</option>
+             <option value="" selected disabled>Choose SUBSCRIBERS plan</option>
            </select>
            <div class="custom-select-trigger" id="orderform-subscribers-category-custom">
-             <span class="selected-value">Choose</span> 
+             <span class="selected-value">Choose SUBSCRIBERS plan</span> 
              <i class="fas fa-chevron-down dropdown-arrow"></i>
            </div>
            <div class="custom-options-container" id="subscribers-options-container"></div>
@@ -1562,10 +1562,10 @@
            <label for="orderform-watchtime-category" class="control-label">Watch Time</label> 
            
            <select class="form-control d-none" id="orderform-watchtime-category" name="OrderForm[watchtime_category]">
-             <option value="" selected disabled>Choose</option>
+             <option value="" selected disabled>Choose watch time plan</option>
            </select>
            <div class="custom-select-trigger" id="orderform-watchtime-category-custom">
-             <span class="selected-value">Choose</span> 
+             <span class="selected-value">Choose watch time plan</span> 
              <i class="fas fa-chevron-down dropdown-arrow"></i>
            </div>
            <div class="custom-options-container" id="watchtime-options-container"></div>
@@ -2188,11 +2188,11 @@ document.addEventListener("DOMContentLoaded", function() {
             if (selectedOpt && platformTrigger) platformTrigger.textContent = selectedOpt.textContent;
         }
 
-        updateCustomDropdownNative(platform, 'orderform-followers-category', 'followers-options-container', followersOptionsData, 'Choose');
-        updateCustomDropdownNative(platform, 'orderform-likes-category', 'likes-options-container', likesOptionsData, 'Choose');
-        updateCustomDropdownNative(platform, 'orderform-views-category', 'views-options-container', viewsOptionsData, 'Choose');
-        updateCustomDropdownNative(platform, 'orderform-subscribers-category', 'subscribers-options-container', ytSubscribersData, 'Choose');
-        updateCustomDropdownNative(platform, 'orderform-watchtime-category', 'watchtime-options-container', ytWatchTimeData, 'Choose');
+        updateCustomDropdownNative(platform, 'orderform-followers-category', 'followers-options-container', followersOptionsData, 'Choose Followers Plan');
+        updateCustomDropdownNative(platform, 'orderform-likes-category', 'likes-options-container', likesOptionsData, 'Choose Like Plan');
+        updateCustomDropdownNative(platform, 'orderform-views-category', 'views-options-container', viewsOptionsData, 'Choose views plan');
+        updateCustomDropdownNative(platform, 'orderform-subscribers-category', 'subscribers-options-container', ytSubscribersData, 'Choose SUBSCRIBERS plan');
+        updateCustomDropdownNative(platform, 'orderform-watchtime-category', 'watchtime-options-container', ytWatchTimeData, 'Choose watch time plan');
       }
       
       const platformSelect = document.getElementById('orderform-platform');
