@@ -2263,11 +2263,16 @@ document.addEventListener("DOMContentLoaded", function() {
               select.value = option.getAttribute('data-value');
               triggerSpan.innerHTML = option.innerHTML;
 
+              // FIX: Removed the trigger('change') block to stop the website from reloading 
+              // when options are clicked repeatedly. Perfect Panel's default scripts were 
+              // intercepting the change event and causing the reload.
+              /*
               if (window.jQuery) {
                   window.jQuery(select).trigger('change');
               } else {
                   select.dispatchEvent(new Event('change', { bubbles: true }));
               }
+              */
 
               wrapper.querySelectorAll('.custom-option').forEach(o => o.classList.remove('selected'));
               option.classList.add('selected');
