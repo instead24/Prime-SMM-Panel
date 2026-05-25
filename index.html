@@ -1793,26 +1793,38 @@ body {
 
 <!-- START: Custom JavaScript for page switching -->
 <script type="text/javascript">
-document.addEventListener("DOMContentLoaded", function() {
-    const loginForm = document.getElementById('login-form');
-    const loginPage = document.getElementById('login-page');
-    const dashboardPage = document.getElementById('dashboard-page');
-
-    loginForm.addEventListener('submit', function(event) {
-        event.preventDefault(); // Rokta hai form ko submit hone se
+    document.addEventListener("DOMContentLoaded", function() {
+        const loginForm = document.getElementById('login-form');
+        const loginPage = document.getElementById('login-page');
+        const dashboardPage = document.getElementById('dashboard-page');
+        const logoutLinks = document.querySelectorAll('a[href="/logout"]');
         
-        // Login page ko hide karein
-        loginPage.style.display = 'none';
+        // 1. Check karein ki kya user pehle se logged in hai (Persistence)
+        if (localStorage.getItem('isLoggedIn') === 'true') {
+            loginPage.style.display = 'none';
+            dashboardPage.style.display = 'block';
+        }
         
-        // Dashboard page ko show karein
-        dashboardPage.style.display = 'block';
+        // 2. Login form submit hone par state save karein
+        loginForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            // State save karein browser memory mein
+            localStorage.setItem('isLoggedIn', 'true');
+            
+            loginPage.style.display = 'none';
+            dashboardPage.style.display = 'block';
+            
+            window.scrollTo(0, 0);
+        });
         
-        // --- FIX START ---
-        // Yeh line page ko upar scroll karne ke liye add ki gayi hai
-        window.scrollTo(0, 0);
-        // --- FIX END ---
+        // 3. Logout click hone par memory clear karein
+        logoutLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                localStorage.removeItem('isLoggedIn');
+            });
+        });
     });
-});
 </script>
 <!-- END: Custom JavaScript for page switching -->
 
