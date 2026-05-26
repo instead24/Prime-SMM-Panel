@@ -1799,29 +1799,29 @@ body {
         const dashboardPage = document.getElementById('dashboard-page');
         const logoutLinks = document.querySelectorAll('a[href="/logout"]');
         
-        // 1. Check karein ki kya user pehle se logged in hai (Persistence)
-        if (localStorage.getItem('isLoggedIn') === 'true') {
-            loginPage.style.display = 'none';
-            dashboardPage.style.display = 'block';
-        }
+        // 1. Website khulte hi hamesha login-page (Intro) dikhayega.
+        loginPage.style.display = 'block';
+        dashboardPage.style.display = 'none';
         
-        // 2. Login form submit hone par state save karein
+        // 2. Jab user "Get Start" button par click karega (Form submit karega)
         loginForm.addEventListener('submit', function(event) {
-            event.preventDefault();
+            event.preventDefault(); // Page reload hone se rokne ke liye
             
-            // State save karein browser memory mein
-            localStorage.setItem('isLoggedIn', 'true');
-            
+            // Intro page ko hide karein aur Dashboard dikhayein
             loginPage.style.display = 'none';
             dashboardPage.style.display = 'block';
             
+            // Screen ko wapas upar le jaane ke liye
             window.scrollTo(0, 0);
         });
         
-        // 3. Logout click hone par memory clear karein
+        // 3. Logout handle karne ke liye (Optional)
         logoutLinks.forEach(link => {
-            link.addEventListener('click', function() {
-                localStorage.removeItem('isLoggedIn');
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                dashboardPage.style.display = 'none';
+                loginPage.style.display = 'block';
+                window.scrollTo(0, 0);
             });
         });
     });
