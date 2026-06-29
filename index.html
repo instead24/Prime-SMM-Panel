@@ -1822,6 +1822,39 @@ body {
                 window.scrollTo(0, 0);
             });
         });
+
+        // 4. Manual handler for the mobile navbar collapse menu
+        const togglers = document.querySelectorAll('.navbar-toggler');
+        togglers.forEach(function(toggler) {
+            toggler.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                const targetId = this.getAttribute('data-target');
+                if (targetId) {
+                    const targetEl = document.querySelector(targetId);
+                    if (targetEl) {
+                        const isExpanded = targetEl.classList.contains('show') || targetEl.classList.contains('in');
+                        
+                        if (isExpanded) {
+                            targetEl.classList.remove('show', 'in');
+                            this.setAttribute('aria-expanded', 'false');
+                            this.classList.add('collapsed');
+                            
+                            const burger = this.querySelector('.navbar-burger');
+                            if (burger) burger.classList.remove('active', 'open');
+                        } else {
+                            targetEl.classList.add('show', 'in');
+                            this.setAttribute('aria-expanded', 'true');
+                            this.classList.remove('collapsed');
+                            
+                            const burger = this.querySelector('.navbar-burger');
+                            if (burger) burger.classList.add('active', 'open');
+                        }
+                    }
+                }
+            });
+        });
     });
 </script>
 <!-- END: Custom JavaScript for page switching -->
